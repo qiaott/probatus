@@ -102,7 +102,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../tutorials/nb_shap_model_interpreter.html">
+<a class="md-tabs__link" href="../tutorials/nb_shap_feature_elimination.html">
         Tutorials
       </a>
 </li>
@@ -170,13 +170,13 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tutorials/nb_shap_model_interpreter.html">
-      Tree-based Model Interpretation with SHAP
+<a class="md-nav__link" href="../tutorials/nb_shap_feature_elimination.html">
+      ShapRFECV - Recursive Feature Elimination using SHAP importance
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tutorials/nb_shap_feature_elimination.html">
-      Recursive Feature Elimination using SHAP importance and CV
+<a class="md-nav__link" href="../tutorials/nb_shap_model_interpreter.html">
+      Tree-based Model Interpretation with SHAP
     </a>
 </li>
 <li class="md-nav__item">
@@ -192,6 +192,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../tutorials/nb_distribution_statistics.html">
       Univariate Sample Similarity
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/nb_custom_scoring.html">
+      Custom Scoring Metrics
     </a>
 </li>
 </ul>
@@ -225,17 +230,6 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.feature_elimination">
-    probatus.feature_elimination
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.feature_elimination.feature_elimination">
-    feature_elimination
-  </a>
-<nav aria-label="feature_elimination" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
 <a class="md-nav__link" href="#probatus.feature_elimination.feature_elimination.ShapRFECV">
     ShapRFECV
   </a>
@@ -270,9 +264,6 @@
 <a class="md-nav__link" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.plot">
     plot()
   </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -300,6 +291,11 @@
       probatus.stat_tests
     </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="utils.html">
+      probatus.utils
+    </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -317,17 +313,6 @@
       Table of contents
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.feature_elimination">
-    probatus.feature_elimination
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.feature_elimination.feature_elimination">
-    feature_elimination
-  </a>
-<nav aria-label="feature_elimination" class="md-nav">
-<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#probatus.feature_elimination.feature_elimination.ShapRFECV">
     ShapRFECV
@@ -369,9 +354,6 @@
 </li>
 </ul>
 </nav>
-</li>
-</ul>
-</nav>
 </div>
 </div>
 </div>
@@ -383,20 +365,12 @@
 <h1 id="features-elimination">Features Elimination<a class="headerlink" href="#features-elimination" title="Permanent link">¶</a></h1>
 <p>This module allows to apply features elimination.</p>
 <div class="doc doc-object doc-module">
-<h2 class="hidden-toc" href="#probatus.feature_elimination" id="probatus.feature_elimination" style="visibility: hidden; position: absolute;">
-<a class="headerlink" href="#probatus.feature_elimination" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents first">
 <div class="doc doc-children">
-<div class="doc doc-object doc-module">
-<h2 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination">
-<code>feature_elimination</code>
-<a class="headerlink" href="#probatus.feature_elimination.feature_elimination" title="Permanent link">¶</a></h2>
-<div class="doc doc-contents">
-<div class="doc doc-children">
 <div class="doc doc-object doc-class">
-<h3 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV">
+<h2 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV">
 <code>ShapRFECV</code>
-<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV" title="Permanent link">¶</a></h3>
+<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
 <p>This class performs Backwards Recursive Feature Elimination, using SHAP feature importance. At each round, for a
     given feature set, starting from all available features, the following steps are applied:</p>
@@ -424,30 +398,28 @@
 <p><strong>Examples:</strong></p>
 <br/>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">probatus.feature_elimination</span> <span class="kn">import</span> <span class="n">ShapRFECV</span>
+<pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">probatus.feature_elimination</span> <span class="kn">import</span> <span class="n">ShapRFECV</span>
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">lightgbm</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
 
-<span class="n">feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'f1_categorical'</span><span class="p">,</span> <span class="s1">'f2_missing'</span><span class="p">,</span> <span class="s1">'f3_static'</span><span class="p">,</span> <span class="s1">'f4'</span><span class="p">,</span> <span class="s1">'f5'</span><span class="p">,</span> <span class="s1">'f6'</span><span class="p">,</span> <span class="s1">'f7'</span><span class="p">,</span> <span class="s1">'f8'</span><span class="p">,</span> <span class="s1">'f9'</span><span class="p">,</span> <span class="s1">'f10'</span><span class="p">,</span> <span class="s1">'f11'</span><span class="p">,</span> <span class="s1">'f12'</span><span class="p">,</span> <span class="s1">'f13'</span><span class="p">,</span> <span class="s1">'f14'</span><span class="p">,</span> <span class="s1">'f15'</span><span class="p">,</span> <span class="s1">'f16'</span><span class="p">,</span> <span class="s1">'f17'</span><span class="p">,</span> <span class="s1">'f18'</span><span class="p">,</span> <span class="s1">'f19'</span><span class="p">,</span> <span class="s1">'f20'</span><span class="p">]</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'f1'</span><span class="p">,</span> <span class="s1">'f2'</span><span class="p">,</span> <span class="s1">'f3'</span><span class="p">,</span> <span class="s1">'f4'</span><span class="p">,</span> <span class="s1">'f5'</span><span class="p">,</span> <span class="s1">'f6'</span><span class="p">,</span> <span class="s1">'f7'</span><span class="p">,</span> <span class="s1">'f8'</span><span class="p">,</span> <span class="s1">'f9'</span><span class="p">,</span> <span class="s1">'f10'</span><span class="p">,</span> <span class="s1">'f11'</span><span class="p">,</span> <span class="s1">'f12'</span><span class="p">,</span> <span class="s1">'f13'</span><span class="p">,</span> <span class="s1">'f14'</span><span class="p">,</span> <span class="s1">'f15'</span><span class="p">,</span> <span class="s1">'f16'</span><span class="p">,</span> <span class="s1">'f17'</span><span class="p">,</span> <span class="s1">'f18'</span><span class="p">,</span> <span class="s1">'f19'</span><span class="p">,</span> <span class="s1">'f20'</span><span class="p">]</span>
 
 <span class="c1"># Prepare two samples</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">class_sep</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">class_sep</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
                            <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span>
-<span class="n">X</span><span class="p">[</span><span class="s1">'f1_categorical'</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">'f1_categorical'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">10</span><span class="p">)))</span>
-<span class="n">X</span><span class="p">[</span><span class="s1">'f2_missing'</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="s1">'f2_missing'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span><span class="o">&lt;</span><span class="mf">0.8</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-<span class="n">X</span><span class="p">[</span><span class="s1">'f3_static'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
 
 <span class="c1"># Prepare model and parameter search space</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">lightgbm</span><span class="o">.</span><span class="n">LGBMClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">'balanced'</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">'balanced'</span><span class="p">)</span>
 
 <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">'n_estimators'</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
-    <span class="s1">'num_leaves'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="s1">'min_samples_leaf'</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
 <span class="p">}</span>
 <span class="n">search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">)</span>
 
@@ -464,15 +436,16 @@
 <span class="n">final_features_set</span> <span class="o">=</span> <span class="n">shap_elimination</span><span class="o">.</span><span class="n">get_reduced_features_set</span><span class="p">(</span><span class="n">num_features</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </code></pre>
 </div>
+<p><img src="../img/shaprfecv.png" width="500"/></p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.__init__">
+<h3 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.__init__">
 <code class="highlight language-python">
-__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_features_to_select</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_features_to_select</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
 <span class="doc doc-properties">
 <small class="doc doc-property doc-property-special"><code>special</code></small>
 </span>
-<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.__init__" title="Permanent link">¶</a></h4>
+<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.__init__" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>This method initializes the class:</p>
 <p><strong>Parameters:</strong></p>
@@ -500,7 +473,7 @@ and <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_sel
 </tr>
 <tr>
 <td><code>step</code></td>
-<td><code>Optional, int or float</code></td>
+<td><code>int or float</code></td>
 <td>
 <p>Number of lowest importance features removed each round. If it is an int, then each round such number of
 features is discarded. If float, such percentage of remaining features (rounded down) is removed each
@@ -512,7 +485,7 @@ order to reach min_features_to_select.</p>
 </tr>
 <tr>
 <td><code>min_features_to_select</code></td>
-<td><code>Optional, int</code></td>
+<td><code>int</code></td>
 <td>
 <p>Minimum number of features to be kept. This is a stopping criterion of the feature elimination. By
 default the process stops when one feature is left.</p>
@@ -521,7 +494,7 @@ default the process stops when one feature is left.</p>
 </tr>
 <tr>
 <td><code>cv</code></td>
-<td><code>Optional, int, cross-validation generator or an iterable</code></td>
+<td><code>int, cross-validation generator or an iterable</code></td>
 <td>
 <p>Determines the cross-validation splitting strategy. Compatible with sklearn
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFECV.html">cv parameter</a>.
@@ -531,16 +504,17 @@ If None, then cv of 5 is used.</p>
 </tr>
 <tr>
 <td><code>scoring</code></td>
-<td><code>Optional, string, callable or None</code></td>
+<td><code>string or probatus.utils.Scorer</code></td>
 <td>
-<p>A string (see sklearn <a href="https://scikit-learn.org/stable/modules/model_evaluation.html">model scoring</a>) or
-a scorer callable object, function with the signature <code>scorer(estimator, X, y)</code>.</p>
+<p>Metric for which the model performance is calculated. It can be either a metric name  aligned with
+predefined <a href="https://scikit-learn.org/stable/modules/model_evaluation.html">classification scorers names in sklearn</a>.
+Another option is using probatus.utils.Scorer to define a custom metric.</p>
 </td>
-<td><code>None</code></td>
+<td><code>'roc_auc'</code></td>
 </tr>
 <tr>
 <td><code>n_jobs</code></td>
-<td><code>Optional, int</code></td>
+<td><code>int</code></td>
 <td>
 <p>Number of cores to run in parallel while fitting across folds. None means 1 unless in a
 <code>joblib.parallel_backend</code> context. -1 means using all processors.</p>
@@ -548,8 +522,22 @@ a scorer callable object, function with the signature <code>scorer(estimator, X,
 <td><code>-1</code></td>
 </tr>
 <tr>
+<td><code>verbose</code></td>
+<td><code>int</code></td>
+<td>
+<p>Controls verbosity of the output:</p>
+<ul>
+<li>0 - nether prints nor warnings are shown</li>
+<li>1 - 50 - only most important warnings</li>
+<li>51 - 100 - shows other warnings and prints</li>
+<li>above 100 - presents all prints and all warnings (including SHAP warnings).</li>
+</ul>
+</td>
+<td><code>0</code></td>
+</tr>
+<tr>
 <td><code>random_state</code></td>
-<td><code>Optional, int</code></td>
+<td><code>int</code></td>
 <td>
 <p>Random state set at each round of feature elimination. If it is None, the results will not be
 reproducible and in random search at each iteration a different hyperparameters might be tested. For
@@ -562,7 +550,8 @@ reproducible results set it to integer.</p>
 <details class="quote">
 <summary>Source code in <code>probatus/feature_elimination/feature_elimination.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_features_to_select</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_features_to_select</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+             <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    This method initializes the class:</span>
 
@@ -574,31 +563,40 @@ reproducible results set it to integer.</p>
 <span class="sd">            [GridSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)</span>
 <span class="sd">            and [RandomizedSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html).</span>
 
-<span class="sd">        step (Optional, int or float):</span>
+<span class="sd">        step (int or float, optional):</span>
 <span class="sd">            Number of lowest importance features removed each round. If it is an int, then each round such number of</span>
 <span class="sd">            features is discarded. If float, such percentage of remaining features (rounded down) is removed each</span>
 <span class="sd">            iteration. It is recommended to use float, since it is faster for a large number of features, and slows</span>
 <span class="sd">            down and becomes more precise towards less features. Note: the last round may remove fewer features in</span>
 <span class="sd">            order to reach min_features_to_select.</span>
 
-<span class="sd">        min_features_to_select (Optional, int):</span>
+<span class="sd">        min_features_to_select (int, optional):</span>
 <span class="sd">            Minimum number of features to be kept. This is a stopping criterion of the feature elimination. By</span>
 <span class="sd">            default the process stops when one feature is left.</span>
 
-<span class="sd">        cv (Optional, int, cross-validation generator or an iterable):</span>
+<span class="sd">        cv (int, cross-validation generator or an iterable, optional):</span>
 <span class="sd">            Determines the cross-validation splitting strategy. Compatible with sklearn</span>
 <span class="sd">            [cv parameter](https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFECV.html).</span>
 <span class="sd">            If None, then cv of 5 is used.</span>
 
-<span class="sd">        scoring (Optional, string, callable or None):</span>
-<span class="sd">            A string (see sklearn [model scoring](https://scikit-learn.org/stable/modules/model_evaluation.html)) or</span>
-<span class="sd">            a scorer callable object, function with the signature `scorer(estimator, X, y)`.</span>
+<span class="sd">        scoring (string or probatus.utils.Scorer, optional):</span>
+<span class="sd">            Metric for which the model performance is calculated. It can be either a metric name  aligned with</span>
+<span class="sd">            predefined [classification scorers names in sklearn](https://scikit-learn.org/stable/modules/model_evaluation.html).</span>
+<span class="sd">            Another option is using probatus.utils.Scorer to define a custom metric.</span>
 
-<span class="sd">        n_jobs (Optional, int):</span>
+<span class="sd">        n_jobs (int, optional):</span>
 <span class="sd">            Number of cores to run in parallel while fitting across folds. None means 1 unless in a</span>
 <span class="sd">            `joblib.parallel_backend` context. -1 means using all processors.</span>
 
-<span class="sd">        random_state (Optional, int):</span>
+<span class="sd">        verbose (int, optional):</span>
+<span class="sd">            Controls verbosity of the output:</span>
+
+<span class="sd">            - 0 - nether prints nor warnings are shown</span>
+<span class="sd">            - 1 - 50 - only most important warnings</span>
+<span class="sd">            - 51 - 100 - shows other warnings and prints</span>
+<span class="sd">            - above 100 - presents all prints and all warnings (including SHAP warnings).</span>
+
+<span class="sd">        random_state (int, optional):</span>
 <span class="sd">            Random state set at each round of feature elimination. If it is None, the results will not be</span>
 <span class="sd">            reproducible and in random search at each iteration a different hyperparameters might be tested. For</span>
 <span class="sd">            reproducible results set it to integer.</span>
@@ -624,21 +622,21 @@ reproducible results set it to integer.</p>
                           <span class="sa">f</span><span class="s2">"It needs to be a positive integer."</span><span class="p">))</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">cv</span> <span class="o">=</span> <span class="n">cv</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">scorer</span> <span class="o">=</span> <span class="n">check_scoring</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">scorer</span> <span class="o">=</span> <span class="n">get_single_scorer</span><span class="p">(</span><span class="n">scoring</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">report_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([])</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">fitted</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
 </code></pre>
 </div>
 </details>
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.compute">
+<h3 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.compute">
 <code class="highlight language-python">
 compute<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
-<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.compute" title="Permanent link">¶</a></h4>
+<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.compute" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Checks if fit() method has been run and computes the DataFrame with results of feature elimintation for each
  round.</p>
@@ -680,10 +678,10 @@ compute<span class="p">(</span><span class="bp">self</span><span class="p">)</sp
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.fit">
+<h3 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.fit">
 <code class="highlight language-python">
-fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> </code>
-<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.fit" title="Permanent link">¶</a></h4>
+fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.fit" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Fits the object with the provided data. The algorithm starts with the entire dataset, and then sequentially
      eliminates features. If <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html">GridSearchCV</a>
@@ -717,12 +715,39 @@ fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 </td>
 <td><em>required</em></td>
 </tr>
+<tr>
+<td><code>column_names</code></td>
+<td><code>list of str</code></td>
+<td>
+<p>List of feature names of the provided samples. If provided it will be used to overwrite the existing
+feature names. If not provided the existing feature names are used or default feature names are
+generated.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(ShapRFECV)</code></td>
+<td>
+<p>Fitted object.</p>
+</td>
+</tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>probatus/feature_elimination/feature_elimination.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Fits the object with the provided data. The algorithm starts with the entire dataset, and then sequentially</span>
 <span class="sd">         eliminates features. If [GridSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)</span>
@@ -736,16 +761,23 @@ fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 
 <span class="sd">        y (pd.Series):</span>
 <span class="sd">            Binary labels for X.</span>
+
+<span class="sd">        column_names (list of str, optional):</span>
+<span class="sd">            List of feature names of the provided samples. If provided it will be used to overwrite the existing</span>
+<span class="sd">            feature names. If not provided the existing feature names are used or default feature names are</span>
+<span class="sd">            generated.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (ShapRFECV): Fitted object.</span>
 <span class="sd">    """</span>
     <span class="c1"># Set seed for results reproducibility</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preprocess_data</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">assure_pandas_series</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_names</span> <span class="o">=</span> <span class="n">preprocess_data</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X_name</span><span class="o">=</span><span class="s1">'X'</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">preprocess_labels</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_name</span><span class="o">=</span><span class="s1">'y'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">cv</span> <span class="o">=</span> <span class="n">check_cv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">is_classifier</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="p">))</span>
 
-    <span class="n">remaining_features</span> <span class="o">=</span> <span class="n">current_features_set</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">remaining_features</span> <span class="o">=</span> <span class="n">current_features_set</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_names</span>
     <span class="n">round_number</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_features_set</span><span class="p">)</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_features_to_select</span><span class="p">:</span>
@@ -768,7 +800,8 @@ fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 
         <span class="c1"># Perform CV to estimate feature importance with SHAP</span>
         <span class="n">results_per_fold</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_feature_shap_values_per_fold</span><span class="p">)(</span>
-            <span class="n">X</span><span class="o">=</span><span class="n">current_X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">clf</span><span class="o">=</span><span class="n">current_clf</span><span class="p">,</span> <span class="n">train_index</span><span class="o">=</span><span class="n">train_index</span><span class="p">,</span> <span class="n">val_index</span><span class="o">=</span><span class="n">val_index</span><span class="p">,</span> <span class="n">scorer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scorer</span>
+            <span class="n">X</span><span class="o">=</span><span class="n">current_X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">clf</span><span class="o">=</span><span class="n">current_clf</span><span class="p">,</span> <span class="n">train_index</span><span class="o">=</span><span class="n">train_index</span><span class="p">,</span> <span class="n">val_index</span><span class="o">=</span><span class="n">val_index</span><span class="p">,</span>
+            <span class="n">scorer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scorer</span><span class="o">.</span><span class="n">scorer</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span>
         <span class="p">)</span> <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">val_index</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">current_X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
 
         <span class="n">shap_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">current_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">current_result</span> <span class="ow">in</span> <span class="n">results_per_fold</span><span class="p">])</span>
@@ -788,25 +821,26 @@ fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
                                      <span class="n">train_metric_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">scores_train</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span>
                                      <span class="n">val_metric_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores_val</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span>
                                      <span class="n">val_metric_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">scores_val</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Round: </span><span class="si">{</span><span class="n">round_number</span><span class="si">}</span><span class="s1">, Current number of features: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">current_features_set</span><span class="p">)</span><span class="si">}</span><span class="s1">, '</span>
-              <span class="sa">f</span><span class="s1">'Current performance: Train </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">report_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">round_number</span><span class="p">][</span><span class="s2">"train_metric_mean"</span><span class="p">]</span><span class="si">}</span><span class="s1"> '</span>
-              <span class="sa">f</span><span class="s1">'+/- </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">report_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">round_number</span><span class="p">][</span><span class="s2">"train_metric_std"</span><span class="p">]</span><span class="si">}</span><span class="s1">, CV Validation '</span>
-              <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">report_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">round_number</span><span class="p">][</span><span class="s2">"val_metric_mean"</span><span class="p">]</span><span class="si">}</span><span class="s1"> '</span>
-              <span class="sa">f</span><span class="s1">'+/- </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">report_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">round_number</span><span class="p">][</span><span class="s2">"val_metric_std"</span><span class="p">]</span><span class="si">}</span><span class="s1">. </span><span class="se">\n</span><span class="s1">'</span>
-              <span class="sa">f</span><span class="s1">'Num of features left: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">remaining_features</span><span class="p">)</span><span class="si">}</span><span class="s1">. '</span>
-              <span class="sa">f</span><span class="s1">'Removed features at the end of the round: </span><span class="si">{</span><span class="n">features_to_remove</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Round: </span><span class="si">{</span><span class="n">round_number</span><span class="si">}</span><span class="s1">, Current number of features: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">current_features_set</span><span class="p">)</span><span class="si">}</span><span class="s1">, '</span>
+                  <span class="sa">f</span><span class="s1">'Current performance: Train </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">report_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">round_number</span><span class="p">][</span><span class="s2">"train_metric_mean"</span><span class="p">]</span><span class="si">}</span><span class="s1"> '</span>
+                  <span class="sa">f</span><span class="s1">'+/- </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">report_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">round_number</span><span class="p">][</span><span class="s2">"train_metric_std"</span><span class="p">]</span><span class="si">}</span><span class="s1">, CV Validation '</span>
+                  <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">report_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">round_number</span><span class="p">][</span><span class="s2">"val_metric_mean"</span><span class="p">]</span><span class="si">}</span><span class="s1"> '</span>
+                  <span class="sa">f</span><span class="s1">'+/- </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">report_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">round_number</span><span class="p">][</span><span class="s2">"val_metric_std"</span><span class="p">]</span><span class="si">}</span><span class="s1">. </span><span class="se">\n</span><span class="s1">'</span>
+                  <span class="sa">f</span><span class="s1">'Num of features left: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">remaining_features</span><span class="p">)</span><span class="si">}</span><span class="s1">. '</span>
+                  <span class="sa">f</span><span class="s1">'Removed features at the end of the round: </span><span class="si">{</span><span class="n">features_to_remove</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">fitted</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="bp">self</span>
 </code></pre>
 </div>
 </details>
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.fit_compute">
+<h3 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.fit_compute">
 <code class="highlight language-python">
-fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> </code>
-<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.fit_compute" title="Permanent link">¶</a></h4>
+fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.fit_compute" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Fits the object with the provided data. The algorithm starts with the entire dataset, and then sequentially
      eliminates features. If <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html">GridSearchCV</a>
@@ -841,6 +875,16 @@ fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,
 </td>
 <td><em>required</em></td>
 </tr>
+<tr>
+<td><code>column_names</code></td>
+<td><code>list of str</code></td>
+<td>
+<p>List of feature names of the provided samples. If provided it will be used to overwrite the existing
+feature names. If not provided the existing feature names are used or default feature names are
+generated.</p>
+</td>
+<td><code>None</code></td>
+</tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong></p>
@@ -863,7 +907,7 @@ fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,
 <details class="quote">
 <summary>Source code in <code>probatus/feature_elimination/feature_elimination.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">fit_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">fit_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Fits the object with the provided data. The algorithm starts with the entire dataset, and then sequentially</span>
 <span class="sd">         eliminates features. If [GridSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html)</span>
@@ -879,12 +923,17 @@ fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,
 <span class="sd">        y (pd.Series):</span>
 <span class="sd">            Binary labels for X.</span>
 
+<span class="sd">        column_names (list of str, optional):</span>
+<span class="sd">            List of feature names of the provided samples. If provided it will be used to overwrite the existing</span>
+<span class="sd">            feature names. If not provided the existing feature names are used or default feature names are</span>
+<span class="sd">            generated.</span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">        (pd.DataFrame):</span>
 <span class="sd">            DataFrame containing results of feature elimination from each iteration.</span>
 <span class="sd">    """</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 </code></pre>
 </div>
@@ -892,10 +941,10 @@ fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.get_reduced_features_set">
+<h3 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.get_reduced_features_set">
 <code class="highlight language-python">
 get_reduced_features_set<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_features</span><span class="p">)</span> </code>
-<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.get_reduced_features_set" title="Permanent link">¶</a></h4>
+<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.get_reduced_features_set" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Gets the features set after the feature elimination process, for a given number of features.</p>
 <p><strong>Parameters:</strong></p>
@@ -964,10 +1013,10 @@ get_reduced_features_set<span class="p">(</span><span class="bp">self</span><spa
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h4 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.plot">
+<h3 class="doc doc-heading" id="probatus.feature_elimination.feature_elimination.ShapRFECV.plot">
 <code class="highlight language-python">
 plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">figure_kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.plot" title="Permanent link">¶</a></h4>
+<a class="headerlink" href="#probatus.feature_elimination.feature_elimination.ShapRFECV.plot" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Generates plot of the model performance for each iteration of feature elimination.</p>
 <p><strong>Parameters:</strong></p>
@@ -983,9 +1032,10 @@ plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <tbody>
 <tr>
 <td><code>show</code></td>
-<td><code>Optional, bool</code></td>
+<td><code>bool</code></td>
 <td>
-<p>If True, the plots are showed to the user, otherwise they are not shown.</p>
+<p>If True, the plots are showed to the user, otherwise they are not shown. Not showing plot can be useful,
+when you want to edit the returned axis, before showing it.</p>
 </td>
 <td><code>True</code></td>
 </tr>
@@ -1024,8 +1074,9 @@ plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <span class="sd">    Generates plot of the model performance for each iteration of feature elimination.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        show (Optional, bool):</span>
-<span class="sd">            If True, the plots are showed to the user, otherwise they are not shown.</span>
+<span class="sd">        show (bool, optional):</span>
+<span class="sd">            If True, the plots are showed to the user, otherwise they are not shown. Not showing plot can be useful,</span>
+<span class="sd">            when you want to edit the returned axis, before showing it.</span>
 
 <span class="sd">        **figure_kwargs:</span>
 <span class="sd">            Keyword arguments that are passed to the plt.figure, at its initialization.</span>
@@ -1049,7 +1100,7 @@ plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                      <span class="bp">self</span><span class="o">.</span><span class="n">report_df</span><span class="p">[</span><span class="s1">'val_metric_mean'</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">report_df</span><span class="p">[</span><span class="s1">'val_metric_std'</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=.</span><span class="mi">3</span><span class="p">)</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Number of features'</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Performance'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Performance </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">scorer</span><span class="o">.</span><span class="n">metric_name</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Backwards Feature Elimination using SHAP &amp; CV'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower left"</span><span class="p">)</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
@@ -1071,9 +1122,6 @@ plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
 </article>
 </div>
 </div>
@@ -1081,7 +1129,7 @@ plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../tutorials/nb_distribution_statistics.html" rel="prev">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../tutorials/nb_custom_scoring.html" rel="prev">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -1090,7 +1138,7 @@ plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Univariate Sample Similarity
+                Custom Scoring Metrics
               </div>
 </div>
 </a>

@@ -102,7 +102,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../tutorials/nb_shap_model_interpreter.html">
+<a class="md-tabs__link" href="../tutorials/nb_shap_feature_elimination.html">
         Tutorials
       </a>
 </li>
@@ -170,13 +170,13 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tutorials/nb_shap_model_interpreter.html">
-      Tree-based Model Interpretation with SHAP
+<a class="md-nav__link" href="../tutorials/nb_shap_feature_elimination.html">
+      ShapRFECV - Recursive Feature Elimination using SHAP importance
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../tutorials/nb_shap_feature_elimination.html">
-      Recursive Feature Elimination using SHAP importance and CV
+<a class="md-nav__link" href="../tutorials/nb_shap_model_interpreter.html">
+      Tree-based Model Interpretation with SHAP
     </a>
 </li>
 <li class="md-nav__item">
@@ -192,6 +192,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../tutorials/nb_distribution_statistics.html">
       Univariate Sample Similarity
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tutorials/nb_custom_scoring.html">
+      Custom Scoring Metrics
     </a>
 </li>
 </ul>
@@ -240,45 +245,6 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model">
-    probatus.sample_similarity.resemblance_model
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel">
-    BaseResemblanceModel
-  </a>
-<nav aria-label="BaseResemblanceModel" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.__init__">
-    __init__()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.compute">
-    compute()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.fit">
-    fit()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.fit_compute">
-    fit_compute()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.get_data_splits">
-    get_data_splits()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.PermutationImportanceResemblance">
     PermutationImportanceResemblance
   </a>
@@ -323,11 +289,6 @@
   </a>
 <nav aria-label="SHAPImportanceResemblance" class="md-nav">
 <ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.__init__">
-    __init__()
-  </a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.compute">
     compute()
@@ -369,6 +330,11 @@
       probatus.stat_tests
     </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="utils.html">
+      probatus.utils
+    </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -386,45 +352,6 @@
       Table of contents
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model">
-    probatus.sample_similarity.resemblance_model
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel">
-    BaseResemblanceModel
-  </a>
-<nav aria-label="BaseResemblanceModel" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.__init__">
-    __init__()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.compute">
-    compute()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.fit">
-    fit()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.fit_compute">
-    fit_compute()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.get_data_splits">
-    get_data_splits()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.PermutationImportanceResemblance">
     PermutationImportanceResemblance
@@ -470,11 +397,6 @@
   </a>
 <nav aria-label="SHAPImportanceResemblance" class="md-nav">
 <ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.__init__">
-    __init__()
-  </a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.compute">
     compute()
@@ -522,11 +444,9 @@
 <p>The goal of sample similarity module is understanding how different two samples are from a multivariate perspective.</p>
 <p>One of the ways to indicate that is Resemblance Model. Having two datasets say X1 and X2, one can analyse how easy is it to recognize which dataset a randomly selected row comes from. The Resemblance model assigns label 0 to X1 dataset, and label 1 to X2 and trains a binary classification model that to predict, which sample a given row comes from.
 By looking at the test AUC, one can conclude that the samples have different distribution the AUC is significantly higher than 0.5. Further, by analysing feature importance one can understand, which of the features have predictive power.</p>
+<p><img src="../img/resemblance_model_schema.png"/></p>
 <p>The following features are implemented:</p>
 <ul>
-<li>
-<p><strong>BaseResemblance</strong> - Base class, provides main functionality with fit method that can be overwritten by subclasses.</p>
-</li>
 <li>
 <p><strong>SHAPImportanceResemblance (Recommended)</strong> -  The class applies SHAP library, in order to interpret the tree based resemblance model model.</p>
 </li>
@@ -535,508 +455,42 @@ By looking at the test AUC, one can conclude that the samples have different dis
 </li>
 </ul>
 <div class="doc doc-object doc-module">
-<h2 class="hidden-toc" href="#probatus.sample_similarity.resemblance_model" id="probatus.sample_similarity.resemblance_model" style="visibility: hidden; position: absolute;">
-<a class="headerlink" href="#probatus.sample_similarity.resemblance_model" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents first">
 <div class="doc doc-children">
-<div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.BaseResemblanceModel">
-<code>BaseResemblanceModel</code>
-<a class="headerlink" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel" title="Permanent link">¶</a></h2>
-<div class="doc doc-contents">
-<p>This model checks for similarity of two samples. A possible use case is analysis whether train sample differs
- from test sample, due to e.g. non-stationarity.</p>
-<p>This is a base class and needs to be extended by a fit() method, which implements how data is split, how model is
- trained and evaluated. Further, inheriting classes need to implement how feature importance should be indicated.</p>
-<div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.BaseResemblanceModel.__init__">
-<code class="highlight language-python">
-__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">test_prc</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span> </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-</span>
-<a class="headerlink" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.__init__" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Initializes the class.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>model</code></td>
-<td><code>model object</code></td>
-<td>
-<p>Binary classification model or pipeline.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>test_prc</code></td>
-<td><code>float</code></td>
-<td>
-<p>Percentage of data used to test the model. By default 0.25 is set.</p>
-</td>
-<td><code>0.25</code></td>
-</tr>
-<tr>
-<td><code>n_jobs</code></td>
-<td><code>int</code></td>
-<td>
-<p>Number of parallel executions. If -1 use all available cores. By default 1.</p>
-</td>
-<td><code>1</code></td>
-</tr>
-<tr>
-<td><code>random_state</code></td>
-<td><code>int</code></td>
-<td>
-<p>The seed used by the random number generator.</p>
-</td>
-<td><code>42</code></td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">test_prc</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Initializes the class.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        model (model object): Binary classification model or pipeline.</span>
-
-<span class="sd">        test_prc (float, optional): Percentage of data used to test the model. By default 0.25 is set.</span>
-
-<span class="sd">        n_jobs (int, optional): Number of parallel executions. If -1 use all available cores. By default 1.</span>
-
-<span class="sd">        random_state (int, optional): The seed used by the random number generator.</span>
-<span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">test_prc</span> <span class="o">=</span> <span class="n">test_prc</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span> <span class="o">=</span> <span class="n">n_jobs</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">fitted</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">metric_name</span> <span class="o">=</span> <span class="s1">'roc_auc'</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">scorer</span> <span class="o">=</span> <span class="n">get_scorers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metric_name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</code></pre>
-</div>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.BaseResemblanceModel.compute">
-<code class="highlight language-python">
-compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
-<a class="headerlink" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.compute" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Checks if fit() method has been run and computes the output variables.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>return_auc</code></td>
-<td><code>bool</code></td>
-<td>
-<p>Flag indicating whether the method should return a tuple (feature
-importances, train AUC, test AUC), or feature importances. By default the second option is selected.</p>
-</td>
-<td><code>False</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>tuple(pd.DataFrame, float, float) or pd.DataFrame</code></td>
-<td>
-<p>Depending on value of return_tuple either returns a
-tuple (feature importances, train AUC, test AUC), or feature importances.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Checks if fit() method has been run and computes the output variables.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        return_auc (bool, optional): Flag indicating whether the method should return a tuple (feature</span>
-<span class="sd">         importances, train AUC, test AUC), or feature importances. By default the second option is selected.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        tuple(pd.DataFrame, float, float) or pd.DataFrame: Depending on value of return_tuple either returns a</span>
-<span class="sd">        tuple (feature importances, train AUC, test AUC), or feature importances.</span>
-<span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_check_if_fitted</span><span class="p">()</span>
-
-    <span class="k">if</span> <span class="n">return_auc</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auc_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auc_test</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">report</span>
-</code></pre>
-</div>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.BaseResemblanceModel.fit">
-<code class="highlight language-python">
-fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
-<a class="headerlink" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.fit" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Base fit functionality that should be executed before each fit.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>X1</code></td>
-<td><code>np.ndarray or pd.DataFrame</code></td>
-<td>
-<p>First sample to be compared. It needs to have the same number of columns
-as X2.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>X2</code></td>
-<td><code>np.ndarray or pd.DataFrame</code></td>
-<td>
-<p>Second sample to be compared. It needs to have the same number of columns
-as X1.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>column_names</code></td>
-<td><code>list of str</code></td>
-<td>
-<p>List of feature names of the provided samples. If provided it will be
-used to overwrite the existing feature names. If not provided the existing feature names are used or default
-feature names are generated.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Base fit functionality that should be executed before each fit.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        X1 (np.ndarray or pd.DataFrame): First sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X2.</span>
-
-<span class="sd">        X2 (np.ndarray or pd.DataFrame): Second sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X1.</span>
-
-<span class="sd">        column_names (list of str, optional): List of feature names of the provided samples. If provided it will be</span>
-<span class="sd">         used to overwrite the existing feature names. If not provided the existing feature names are used or default</span>
-<span class="sd">         feature names are generated.</span>
-<span class="sd">    """</span>
-
-    <span class="c1"># Set seed for results reproducibility</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">)</span>
-
-    <span class="c1"># Ensure inputs are correct</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">X1</span> <span class="o">=</span> <span class="n">assure_numpy_array</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">X2</span> <span class="o">=</span> <span class="n">assure_numpy_array</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
-
-    <span class="c1"># Check if any missing values</span>
-    <span class="n">warn_if_missing</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X1</span><span class="p">,</span> <span class="s1">'X1'</span><span class="p">)</span>
-    <span class="n">warn_if_missing</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X2</span><span class="p">,</span> <span class="s1">'X2'</span><span class="p">)</span>
-
-    <span class="c1"># Ensure the same shapes</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-        <span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Passed variables do not have the same shape. The passed dimensions are </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span>
-                         <span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
-
-    <span class="c1"># Check if column_names are passed correctly</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">column_names</span> <span class="o">=</span> <span class="n">assure_column_names_consistency</span><span class="p">(</span><span class="n">column_names</span><span class="p">,</span> <span class="n">X1</span><span class="p">)</span>
-
-    <span class="c1"># Prepare dataset for modelling</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">X1</span><span class="p">,</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">X2</span>
-    <span class="p">]),</span> <span class="n">columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_names</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-    <span class="p">]))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1"># Reinitialize variables in case of multiple times being fit</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_init_output_variables</span><span class="p">()</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">test_prc</span><span class="p">,</span>
-                                                                            <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span><span class="p">,</span>
-                                                                            <span class="n">stratify</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">)</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">auc_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scorer</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">auc_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">scorer</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
-
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Finished model training: Train AUC </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auc_train</span><span class="si">}</span><span class="s1">,'</span>
-          <span class="sa">f</span><span class="s1">' Test AUC </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auc_test</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auc_train</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">auc_test</span><span class="p">:</span>
-        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">'Train AUC &gt; Test AUC, which might indicate an overfit. </span><span class="se">\n</span><span class="s1">'</span>
-                      <span class="s1">'Strong overfit might lead to misleading conclusions when analysing feature importance. '</span>
-                      <span class="s1">'Consider retraining with more regularization applied to the model.'</span><span class="p">)</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">fitted</span> <span class="o">=</span> <span class="kc">True</span>
-</code></pre>
-</div>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.BaseResemblanceModel.fit_compute">
-<code class="highlight language-python">
-fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">)</span> </code>
-<a class="headerlink" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.fit_compute" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Fits the resemblance model and computes the report regarding feature importance.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>X1</code></td>
-<td><code>np.ndarray or pd.DataFrame</code></td>
-<td>
-<p>First sample to be compared. It needs to have the same number of columns
-as X2.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>X2</code></td>
-<td><code>np.ndarray or pd.DataFrame</code></td>
-<td>
-<p>Second sample to be compared. It needs to have the same number of columns
-as X1.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>column_names</code></td>
-<td><code>list of str</code></td>
-<td>
-<p>List of feature names of the provided samples. If provided it will be
-used to overwrite the existing feature names. If not provided the existing feature names are used or default
-feature names are generated.</p>
-</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>return_auc</code></td>
-<td><code>bool</code></td>
-<td>
-<p>Flag indicating whether the method should return a tuple (feature
-importances, train AUC, test AUC), or only feature importances. By default the second option is selected.</p>
-</td>
-<td><code>False</code></td>
-</tr>
-<tr>
-<td><code>**fit_kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>keyword arguments passed to the fit() method:</p>
-<ul>
-<li><code>X1</code>: First sample to be compared. It needs to have the same number of columns as X2.</li>
-<li><code>X2</code>: Second sample to be compared. It needs to have the same number of columns as X1.</li>
-<li><code>column_names</code>: List of feature names of the provided samples. If provided it will be
- used to overwrite the existing feature names. If not provided the existing feature names are used or default
- feature names are generated.</li>
-</ul>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>tuple of (pd.DataFrame, float, float) or pd.DataFrame</code></td>
-<td>
-<p>Depending on value of return_tuple either returns a
- tuple (feature importances, train AUC, test AUC), or feature importances.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">fit_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Fits the resemblance model and computes the report regarding feature importance.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        X1 (np.ndarray or pd.DataFrame): First sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X2.</span>
-
-<span class="sd">        X2 (np.ndarray or pd.DataFrame): Second sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X1.</span>
-
-<span class="sd">        column_names (list of str, optional): List of feature names of the provided samples. If provided it will be</span>
-<span class="sd">         used to overwrite the existing feature names. If not provided the existing feature names are used or default</span>
-<span class="sd">         feature names are generated.</span>
-
-<span class="sd">        return_auc (bool, optional): Flag indicating whether the method should return a tuple (feature</span>
-<span class="sd">         importances, train AUC, test AUC), or only feature importances. By default the second option is selected.</span>
-
-<span class="sd">        **fit_kwargs: keyword arguments passed to the fit() method:</span>
-
-<span class="sd">            - `X1`: First sample to be compared. It needs to have the same number of columns as X2.</span>
-<span class="sd">            - `X2`: Second sample to be compared. It needs to have the same number of columns as X1.</span>
-<span class="sd">            - `column_names`: List of feature names of the provided samples. If provided it will be</span>
-<span class="sd">             used to overwrite the existing feature names. If not provided the existing feature names are used or default</span>
-<span class="sd">             feature names are generated.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        tuple of (pd.DataFrame, float, float) or pd.DataFrame: Depending on value of return_tuple either returns a</span>
-<span class="sd">         tuple (feature importances, train AUC, test AUC), or feature importances.</span>
-<span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">return_auc</span><span class="o">=</span><span class="n">return_auc</span><span class="p">)</span>
-</code></pre>
-</div>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.BaseResemblanceModel.get_data_splits">
-<code class="highlight language-python">
-get_data_splits<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
-<a class="headerlink" href="#probatus.sample_similarity.resemblance_model.BaseResemblanceModel.get_data_splits" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Returns the data splits used to train the Resemblance model.</p>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>(pd.DataFrame, pd.DataFrame, pd.Series, pd.Series)</code></td>
-<td>
-<p>X_train, X_test, y_train, y_test.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">get_data_splits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Returns the data splits used to train the Resemblance model.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        (pd.DataFrame, pd.DataFrame, pd.Series, pd.Series): X_train, X_test, y_train, y_test.</span>
-<span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_check_if_fitted</span><span class="p">()</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span>
-</code></pre>
-</div>
-</details>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="doc doc-object doc-class">
 <h2 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.PermutationImportanceResemblance">
 <code>PermutationImportanceResemblance</code>
 <a class="headerlink" href="#probatus.sample_similarity.resemblance_model.PermutationImportanceResemblance" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
 <p>This model checks for similarity of two samples. A possible use case is analysis whether train sample differs
- from test sample, due to e.g. non-stationarity.</p>
+    from test sample, due to e.g. non-stationarity.</p>
 <p>It assigns to labels to each sample, 0 to first sample, 1 to the second. Then, It randomly selects a portion of
- data to train on. The resulting model tries to distinguish which sample does a given test row comes from. This
- provides insights on how distinguishable these samples are and which features contribute to that. The feature
- importance is calculated using permutation importance.</p>
+    data to train on. The resulting model tries to distinguish which sample does a given test row comes from. This
+    provides insights on how distinguishable these samples are and which features contribute to that. The feature
+    importance is calculated using permutation importance.</p>
 <p>If the model achieves test AUC significantly different than 0.5, it indicates that it is possible to distinguish
- the samples, and therefore, the samples differ. Features with high permutation importance contribute to that
- effect the most. Thus, their distribution might differ between two samples.</p>
+    the samples, and therefore, the samples differ. Features with high permutation importance contribute to that
+    effect the most. Thus, their distribution might differ between two samples.</p>
 <p><strong>Examples:</strong></p>
 <br/>
 <div class="codehilite">
 <pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 <span class="kn">from</span> <span class="nn">probatus.sample_similarity</span> <span class="kn">import</span> <span class="n">PermutationImportanceResemblance</span>
-<span class="n">X1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">X2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">X1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">X2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">perm</span> <span class="o">=</span> <span class="n">PermutationResemblanceModel</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
+<span class="n">perm</span> <span class="o">=</span> <span class="n">PermutationImportanceResemblance</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
 <span class="n">feature_importance</span> <span class="o">=</span> <span class="n">perm</span><span class="o">.</span><span class="n">fit_compute</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">)</span>
 <span class="n">perm</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </code></pre>
 </div>
+<p><img src="../img/sample_similarity_permutation_importance.png" width="500"/></p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.PermutationImportanceResemblance.__init__">
 <code class="highlight language-python">
-__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span> <span class="n">test_prc</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
 <span class="doc doc-properties">
 <small class="doc doc-property doc-property-special"><code>special</code></small>
 </span>
@@ -1055,7 +509,7 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 </thead>
 <tbody>
 <tr>
-<td><code>model</code></td>
+<td><code>clf</code></td>
 <td><code>model object</code></td>
 <td>
 <p>Binary classification model or pipeline.</p>
@@ -1066,46 +520,106 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <td><code>iterations</code></td>
 <td><code>int</code></td>
 <td>
-<p>Number of iterations performed to calculate permutation importance. By default 100
-iterations per feature are done.</p>
+<p>Number of iterations performed to calculate permutation importance. By default 100 iterations per
+feature are done.</p>
 </td>
 <td><code>100</code></td>
 </tr>
 <tr>
-<td><code>**kwargs</code></td>
-<td><code></code></td>
+<td><code>scoring</code></td>
+<td><code>string or probatus.utils.Scorer</code></td>
 <td>
-<p>Keyword arguments that can overwrite inherited default values in BaseResemblanceModel:</p>
+<p>Metric for which the model performance is calculated. It can be either a metric name  aligned with
+predefined <a href="https://scikit-learn.org/stable/modules/model_evaluation.html">classification scorers names in sklearn</a>.
+Another option is using probatus.utils.Scorer to define a custom metric. Recommended option for this
+class is 'roc_auc'.</p>
+</td>
+<td><code>'roc_auc'</code></td>
+</tr>
+<tr>
+<td><code>test_prc</code></td>
+<td><code>float</code></td>
+<td>
+<p>Percentage of data used to test the model. By default 0.25 is set.</p>
+</td>
+<td><code>0.25</code></td>
+</tr>
+<tr>
+<td><code>n_jobs</code></td>
+<td><code>int</code></td>
+<td>
+<p>Number of parallel executions. If -1 use all available cores. By default 1.</p>
+</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>verbose</code></td>
+<td><code>int</code></td>
+<td>
+<p>Controls verbosity of the output:</p>
 <ul>
-<li><code>test_prc</code>: Percentage of data used to test the model. By default 0.25 is set.</li>
-<li><code>n_jobs</code>: Number of parallel executions. If -1 use all available cores. By default 1.</li>
-<li><code>random_state</code>: The seed used by the random number generator.</li>
+<li>0 - nether prints nor warnings are shown</li>
+<li>1 - 50 - only most important warnings</li>
+<li>51 - 100 - shows other warnings and prints</li>
+<li>above 100 - presents all prints and all warnings (including SHAP warnings).</li>
 </ul>
 </td>
-<td><code>{}</code></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>random_state</code></td>
+<td><code>int</code></td>
+<td>
+<p>Random state set at each round of feature elimination. If it is None, the results will not be
+reproducible and in random search at each iteration a different hyperparameters might be tested. For
+reproducible results set it to integer.</p>
+</td>
+<td><code>None</code></td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span> <span class="n">test_prc</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Initializes the class.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        model (model object): Binary classification model or pipeline.</span>
+<span class="sd">        clf (model object):</span>
+<span class="sd">            Binary classification model or pipeline.</span>
 
-<span class="sd">        iterations (int, optional): Number of iterations performed to calculate permutation importance. By default 100</span>
-<span class="sd">         iterations per feature are done.</span>
+<span class="sd">        iterations (int, optional):</span>
+<span class="sd">            Number of iterations performed to calculate permutation importance. By default 100 iterations per</span>
+<span class="sd">            feature are done.</span>
 
-<span class="sd">        **kwargs: Keyword arguments that can overwrite inherited default values in BaseResemblanceModel:</span>
+<span class="sd">        scoring (string or probatus.utils.Scorer, optional):</span>
+<span class="sd">            Metric for which the model performance is calculated. It can be either a metric name  aligned with</span>
+<span class="sd">            predefined [classification scorers names in sklearn](https://scikit-learn.org/stable/modules/model_evaluation.html).</span>
+<span class="sd">            Another option is using probatus.utils.Scorer to define a custom metric. Recommended option for this</span>
+<span class="sd">            class is 'roc_auc'.</span>
 
-<span class="sd">            - `test_prc`: Percentage of data used to test the model. By default 0.25 is set.</span>
-<span class="sd">            - `n_jobs`: Number of parallel executions. If -1 use all available cores. By default 1.</span>
-<span class="sd">            - `random_state`: The seed used by the random number generator.</span>
+<span class="sd">        test_prc (float, optional):</span>
+<span class="sd">            Percentage of data used to test the model. By default 0.25 is set.</span>
+
+<span class="sd">        n_jobs (int, optional):</span>
+<span class="sd">            Number of parallel executions. If -1 use all available cores. By default 1.</span>
+
+<span class="sd">        verbose (int, optional):</span>
+<span class="sd">            Controls verbosity of the output:</span>
+
+<span class="sd">            - 0 - nether prints nor warnings are shown</span>
+<span class="sd">            - 1 - 50 - only most important warnings</span>
+<span class="sd">            - 51 - 100 - shows other warnings and prints</span>
+<span class="sd">            - above 100 - presents all prints and all warnings (including SHAP warnings).</span>
+
+<span class="sd">        random_state (int, optional):</span>
+<span class="sd">            Random state set at each round of feature elimination. If it is None, the results will not be</span>
+<span class="sd">            reproducible and in random search at each iteration a different hyperparameters might be tested. For</span>
+<span class="sd">            reproducible results set it to integer.</span>
 <span class="sd">    """</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">clf</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">,</span> <span class="n">test_prc</span><span class="o">=</span><span class="n">test_prc</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+                     <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">iterations</span> <span class="o">=</span> <span class="n">iterations</span>
 
@@ -1123,7 +637,7 @@ iterations per feature are done.</p>
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.PermutationImportanceResemblance.compute">
 <code class="highlight language-python">
-compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
+compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
 <span class="doc doc-properties">
 <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
 </span>
@@ -1142,11 +656,11 @@ compute<span class="p">(</span><span class="bp">self</span><span class="p">,</sp
 </thead>
 <tbody>
 <tr>
-<td><code>return_auc</code></td>
+<td><code>return_scores</code></td>
 <td><code>bool</code></td>
 <td>
-<p>Flag indicating whether the method should return a tuple (feature
-importances, train AUC, test AUC), or feature importances. By default the second option is selected.</p>
+<p>Flag indicating whether the method should return a tuple (feature importances, train score,
+test score), or feature importances. By default the second option is selected.</p>
 </td>
 <td><code>False</code></td>
 </tr>
@@ -1162,10 +676,10 @@ importances, train AUC, test AUC), or feature importances. By default the second
 </thead>
 <tbody>
 <tr>
-<td><code>tuple(pd.DataFrame, float, float) or pd.DataFrame</code></td>
+<td><code>(tuple(pd.DataFrame, float, float) or pd.DataFrame)</code></td>
 <td>
-<p>Depending on value of return_tuple either returns a
-tuple (feature importances, train AUC, test AUC), or feature importances.</p>
+<p>Depending on value of return_tuple either returns a tuple (feature importances, train AUC, test AUC), or
+    feature importances.</p>
 </td>
 </tr>
 </tbody>
@@ -1173,22 +687,24 @@ tuple (feature importances, train AUC, test AUC), or feature importances.</p>
 <details class="quote">
 <summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Checks if fit() method has been run and computes the output variables.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        return_auc (bool, optional): Flag indicating whether the method should return a tuple (feature</span>
-<span class="sd">         importances, train AUC, test AUC), or feature importances. By default the second option is selected.</span>
+<span class="sd">        return_scores (bool, optional):</span>
+<span class="sd">            Flag indicating whether the method should return a tuple (feature importances, train score,</span>
+<span class="sd">            test score), or feature importances. By default the second option is selected.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        tuple(pd.DataFrame, float, float) or pd.DataFrame: Depending on value of return_tuple either returns a</span>
-<span class="sd">        tuple (feature importances, train AUC, test AUC), or feature importances.</span>
+<span class="sd">        (tuple(pd.DataFrame, float, float) or pd.DataFrame):</span>
+<span class="sd">            Depending on value of return_tuple either returns a tuple (feature importances, train AUC, test AUC), or</span>
+<span class="sd">            feature importances.</span>
 <span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_check_if_fitted</span><span class="p">()</span>
 
-    <span class="k">if</span> <span class="n">return_auc</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auc_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auc_test</span>
+    <span class="k">if</span> <span class="n">return_scores</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_score</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_score</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">report</span>
 </code></pre>
@@ -1199,13 +715,13 @@ tuple (feature importances, train AUC, test AUC), or feature importances.</p>
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.PermutationImportanceResemblance.fit">
 <code class="highlight language-python">
-fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
 <a class="headerlink" href="#probatus.sample_similarity.resemblance_model.PermutationImportanceResemblance.fit" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>This function assigns to labels to each sample, 0 to first sample, 1 to the second. Then, It randomly selects a
-portion of data to train on. The resulting model tries to distinguish which sample does a given test row comes
-from. This provides insights on how distinguishable these samples are and which features contribute to that. The
-feature importance is calculated using permutation importance.</p>
+    portion of data to train on. The resulting model tries to distinguish which sample does a given test row
+    comes from. This provides insights on how distinguishable these samples are and which features contribute to
+    that. The feature importance is calculated using permutation importance.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -1221,8 +737,7 @@ feature importance is calculated using permutation importance.</p>
 <td><code>X1</code></td>
 <td><code>np.ndarray or pd.DataFrame</code></td>
 <td>
-<p>First sample to be compared. It needs to have the same number of columns
-as X2.</p>
+<p>First sample to be compared. It needs to have the same number of columns as X2.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -1230,8 +745,7 @@ as X2.</p>
 <td><code>X2</code></td>
 <td><code>np.ndarray or pd.DataFrame</code></td>
 <td>
-<p>Second sample to be compared. It needs to have the same number of columns
-as X1.</p>
+<p>Second sample to be compared. It needs to have the same number of columns as X1.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -1239,39 +753,73 @@ as X1.</p>
 <td><code>column_names</code></td>
 <td><code>list of str</code></td>
 <td>
-<p>List of feature names of the provided samples. If provided it will be
-used to overwrite the existing feature names. If not provided the existing feature names are used or default
-feature names are generated.</p>
+<p>List of feature names of the provided samples. If provided it will be used to overwrite the existing
+feature names. If not provided the existing feature names are used or default feature names are
+generated.</p>
 </td>
 <td><code>None</code></td>
+</tr>
+<tr>
+<td><code>class_names</code></td>
+<td><code>None, or list of str</code></td>
+<td>
+<p>List of class names assigned, in this case provided samples e.g. ['sample1', 'sample2']. If none, the
+default ['First Sample', 'Second Sample'] are used.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(PermutationImportanceResemblance)</code></td>
+<td>
+<p>Fitted object.</p>
+</td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    This function assigns to labels to each sample, 0 to first sample, 1 to the second. Then, It randomly selects a</span>
-<span class="sd">    portion of data to train on. The resulting model tries to distinguish which sample does a given test row comes</span>
-<span class="sd">    from. This provides insights on how distinguishable these samples are and which features contribute to that. The</span>
-<span class="sd">    feature importance is calculated using permutation importance.</span>
+<span class="sd">        portion of data to train on. The resulting model tries to distinguish which sample does a given test row</span>
+<span class="sd">        comes from. This provides insights on how distinguishable these samples are and which features contribute to</span>
+<span class="sd">        that. The feature importance is calculated using permutation importance.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        X1 (np.ndarray or pd.DataFrame): First sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X2.</span>
+<span class="sd">        X1 (np.ndarray or pd.DataFrame):</span>
+<span class="sd">            First sample to be compared. It needs to have the same number of columns as X2.</span>
 
-<span class="sd">        X2 (np.ndarray or pd.DataFrame): Second sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X1.</span>
+<span class="sd">        X2 (np.ndarray or pd.DataFrame):</span>
+<span class="sd">            Second sample to be compared. It needs to have the same number of columns as X1.</span>
 
-<span class="sd">        column_names (list of str, optional): List of feature names of the provided samples. If provided it will be</span>
-<span class="sd">         used to overwrite the existing feature names. If not provided the existing feature names are used or default</span>
-<span class="sd">         feature names are generated.</span>
+<span class="sd">        column_names (list of str, optional):</span>
+<span class="sd">            List of feature names of the provided samples. If provided it will be used to overwrite the existing</span>
+<span class="sd">            feature names. If not provided the existing feature names are used or default feature names are</span>
+<span class="sd">            generated.</span>
+
+<span class="sd">        class_names (None, or list of str, optional):</span>
+<span class="sd">            List of class names assigned, in this case provided samples e.g. ['sample1', 'sample2']. If none, the</span>
+<span class="sd">            default ['First Sample', 'Second Sample'] are used.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (PermutationImportanceResemblance):</span>
+<span class="sd">            Fitted object.</span>
 <span class="sd">    """</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="o">=</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="o">=</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">)</span>
 
-
-    <span class="n">permutation_result</span> <span class="o">=</span> <span class="n">permutation_importance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scorer</span><span class="o">.</span><span class="n">scorer</span><span class="p">,</span>
+    <span class="n">permutation_result</span> <span class="o">=</span> <span class="n">permutation_importance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scorer</span><span class="o">.</span><span class="n">scorer</span><span class="p">,</span>
                                                 <span class="n">n_repeats</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iterations</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
 
     <span class="c1"># Prepare report</span>
@@ -1299,6 +847,8 @@ feature names are generated.</p>
 
     <span class="c1"># Sort by mean test score of first metric</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'mean_importance'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="bp">self</span>
 </code></pre>
 </div>
 </details>
@@ -1307,7 +857,7 @@ feature names are generated.</p>
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.PermutationImportanceResemblance.fit_compute">
 <code class="highlight language-python">
-fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">)</span> </code>
+fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">)</span> </code>
 <span class="doc doc-properties">
 <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
 </span>
@@ -1329,8 +879,7 @@ fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,
 <td><code>X1</code></td>
 <td><code>np.ndarray or pd.DataFrame</code></td>
 <td>
-<p>First sample to be compared. It needs to have the same number of columns
-as X2.</p>
+<p>First sample to be compared. It needs to have the same number of columns as X2.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -1338,8 +887,7 @@ as X2.</p>
 <td><code>X2</code></td>
 <td><code>np.ndarray or pd.DataFrame</code></td>
 <td>
-<p>Second sample to be compared. It needs to have the same number of columns
-as X1.</p>
+<p>Second sample to be compared. It needs to have the same number of columns as X1.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -1347,18 +895,27 @@ as X1.</p>
 <td><code>column_names</code></td>
 <td><code>list of str</code></td>
 <td>
-<p>List of feature names of the provided samples. If provided it will be
-used to overwrite the existing feature names. If not provided the existing feature names are used or default
-feature names are generated.</p>
+<p>List of feature names of the provided samples. If provided it will be used to overwrite the existing
+feature names. If not provided the existing feature names are used or default feature names are
+generated.</p>
 </td>
 <td><code>None</code></td>
 </tr>
 <tr>
-<td><code>return_auc</code></td>
+<td><code>class_names</code></td>
+<td><code>None, or list of str</code></td>
+<td>
+<p>List of class names assigned, in this case provided samples e.g. ['sample1', 'sample2']. If none, the
+default ['First Sample', 'Second Sample'] are used.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>return_scores</code></td>
 <td><code>bool</code></td>
 <td>
-<p>Flag indicating whether the method should return a tuple (feature
-importances, train AUC, test AUC), or only feature importances. By default the second option is selected.</p>
+<p>Flag indicating whether the method should return a tuple (feature importances, train score,
+test score), or feature importances. By default the second option is selected.</p>
 </td>
 <td><code>False</code></td>
 </tr>
@@ -1366,14 +923,7 @@ importances, train AUC, test AUC), or only feature importances. By default the s
 <td><code>**fit_kwargs</code></td>
 <td><code></code></td>
 <td>
-<p>keyword arguments passed to the fit() method:</p>
-<ul>
-<li><code>X1</code>: First sample to be compared. It needs to have the same number of columns as X2.</li>
-<li><code>X2</code>: Second sample to be compared. It needs to have the same number of columns as X1.</li>
-<li><code>column_names</code>: List of feature names of the provided samples. If provided it will be
- used to overwrite the existing feature names. If not provided the existing feature names are used or default
- feature names are generated.</li>
-</ul>
+<p>In case any other arguments are accepted by fit() method, they can be passed as keyword arguments</p>
 </td>
 <td><code>{}</code></td>
 </tr>
@@ -1389,10 +939,10 @@ importances, train AUC, test AUC), or only feature importances. By default the s
 </thead>
 <tbody>
 <tr>
-<td><code>tuple of (pd.DataFrame, float, float) or pd.DataFrame</code></td>
+<td><code>(tuple of (pd.DataFrame, float, float) or pd.DataFrame)</code></td>
 <td>
-<p>Depending on value of return_tuple either returns a
- tuple (feature importances, train AUC, test AUC), or feature importances.</p>
+<p>Depending on value of return_tuple either returns a tuple (feature importances, train AUC, test AUC), or
+    feature importances.</p>
 </td>
 </tr>
 </tbody>
@@ -1400,38 +950,41 @@ importances, train AUC, test AUC), or only feature importances. By default the s
 <details class="quote">
 <summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">fit_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">fit_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Fits the resemblance model and computes the report regarding feature importance.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        X1 (np.ndarray or pd.DataFrame): First sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X2.</span>
+<span class="sd">        X1 (np.ndarray or pd.DataFrame):</span>
+<span class="sd">            First sample to be compared. It needs to have the same number of columns as X2.</span>
 
-<span class="sd">        X2 (np.ndarray or pd.DataFrame): Second sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X1.</span>
+<span class="sd">        X2 (np.ndarray or pd.DataFrame):</span>
+<span class="sd">            Second sample to be compared. It needs to have the same number of columns as X1.</span>
 
-<span class="sd">        column_names (list of str, optional): List of feature names of the provided samples. If provided it will be</span>
-<span class="sd">         used to overwrite the existing feature names. If not provided the existing feature names are used or default</span>
-<span class="sd">         feature names are generated.</span>
+<span class="sd">        column_names (list of str, optional):</span>
+<span class="sd">            List of feature names of the provided samples. If provided it will be used to overwrite the existing</span>
+<span class="sd">            feature names. If not provided the existing feature names are used or default feature names are</span>
+<span class="sd">            generated.</span>
 
-<span class="sd">        return_auc (bool, optional): Flag indicating whether the method should return a tuple (feature</span>
-<span class="sd">         importances, train AUC, test AUC), or only feature importances. By default the second option is selected.</span>
+<span class="sd">        class_names (None, or list of str, optional):</span>
+<span class="sd">            List of class names assigned, in this case provided samples e.g. ['sample1', 'sample2']. If none, the</span>
+<span class="sd">            default ['First Sample', 'Second Sample'] are used.</span>
 
-<span class="sd">        **fit_kwargs: keyword arguments passed to the fit() method:</span>
 
-<span class="sd">            - `X1`: First sample to be compared. It needs to have the same number of columns as X2.</span>
-<span class="sd">            - `X2`: Second sample to be compared. It needs to have the same number of columns as X1.</span>
-<span class="sd">            - `column_names`: List of feature names of the provided samples. If provided it will be</span>
-<span class="sd">             used to overwrite the existing feature names. If not provided the existing feature names are used or default</span>
-<span class="sd">             feature names are generated.</span>
+<span class="sd">        return_scores (bool, optional):</span>
+<span class="sd">            Flag indicating whether the method should return a tuple (feature importances, train score,</span>
+<span class="sd">            test score), or feature importances. By default the second option is selected.</span>
+
+<span class="sd">        **fit_kwargs:</span>
+<span class="sd">            In case any other arguments are accepted by fit() method, they can be passed as keyword arguments</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        tuple of (pd.DataFrame, float, float) or pd.DataFrame: Depending on value of return_tuple either returns a</span>
-<span class="sd">         tuple (feature importances, train AUC, test AUC), or feature importances.</span>
+<span class="sd">        (tuple of (pd.DataFrame, float, float) or pd.DataFrame):</span>
+<span class="sd">            Depending on value of return_tuple either returns a tuple (feature importances, train AUC, test AUC), or</span>
+<span class="sd">            feature importances.</span>
 <span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">return_auc</span><span class="o">=</span><span class="n">return_auc</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">return_scores</span><span class="o">=</span><span class="n">return_scores</span><span class="p">)</span>
 </code></pre>
 </div>
 </details>
@@ -1472,7 +1025,8 @@ get_data_splits<span class="p">(</span><span class="bp">self</span><span class="
 <span class="sd">    Returns the data splits used to train the Resemblance model.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        (pd.DataFrame, pd.DataFrame, pd.Series, pd.Series): X_train, X_test, y_train, y_test.</span>
+<span class="sd">        (pd.DataFrame, pd.DataFrame, pd.Series, pd.Series):</span>
+<span class="sd">            X_train, X_test, y_train, y_test.</span>
 <span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_check_if_fitted</span><span class="p">()</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span>
@@ -1484,7 +1038,7 @@ get_data_splits<span class="p">(</span><span class="bp">self</span><span class="
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.PermutationImportanceResemblance.plot">
 <code class="highlight language-python">
-plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">)</span> </code>
 <a class="headerlink" href="#probatus.sample_similarity.resemblance_model.PermutationImportanceResemblance.plot" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Plots the resulting AUC of the model as well as the feature importances.</p>
@@ -1503,8 +1057,7 @@ plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <td><code>ax</code></td>
 <td><code>matplotlib.axes</code></td>
 <td>
-<p>Axes to which the output should be plotted. If not provided a new axes are
-created.</p>
+<p>Axes to which the output should be plotted. If not provided a new axes are created.</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -1512,10 +1065,26 @@ created.</p>
 <td><code>top_n</code></td>
 <td><code>int</code></td>
 <td>
-<p>Number of the most important features to be plotted. By default are features are
-included into the plot.</p>
+<p>Number of the most important features to be plotted. By default are features are included into the plot.</p>
 </td>
 <td><code>None</code></td>
+</tr>
+<tr>
+<td><code>show</code></td>
+<td><code>bool</code></td>
+<td>
+<p>If True, the plots are showed to the user, otherwise they are not shown. Not showing plot can be useful,
+when you want to edit the returned axis, before showing it.</p>
+</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>**plot_kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>Keyword arguments passed to the matplotlib.plotly.subplots method.</p>
+</td>
+<td><code>{}</code></td>
 </tr>
 </tbody>
 </table>
@@ -1529,7 +1098,7 @@ included into the plot.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>matplotlib.axes, optional</code></td>
+<td><code>(matplotlib.axes)</code></td>
 <td>
 <p>Axes that include the plot.</p>
 </td>
@@ -1539,19 +1108,27 @@ included into the plot.</p>
 <details class="quote">
 <summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Plots the resulting AUC of the model as well as the feature importances.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        ax (matplotlib.axes, optional): Axes to which the output should be plotted. If not provided a new axes are</span>
-<span class="sd">         created.</span>
+<span class="sd">        ax (matplotlib.axes, optional):</span>
+<span class="sd">            Axes to which the output should be plotted. If not provided a new axes are created.</span>
 
-<span class="sd">        top_n (int, optional): Number of the most important features to be plotted. By default are features are</span>
-<span class="sd">         included into the plot.</span>
+<span class="sd">        top_n (int, optional):</span>
+<span class="sd">            Number of the most important features to be plotted. By default are features are included into the plot.</span>
+
+<span class="sd">        show (bool, optional):</span>
+<span class="sd">            If True, the plots are showed to the user, otherwise they are not shown. Not showing plot can be useful,</span>
+<span class="sd">            when you want to edit the returned axis, before showing it.</span>
+
+<span class="sd">        **plot_kwargs:</span>
+<span class="sd">            Keyword arguments passed to the matplotlib.plotly.subplots method.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        matplotlib.axes, optional: Axes that include the plot.</span>
+<span class="sd">        (matplotlib.axes):</span>
+<span class="sd">            Axes that include the plot.</span>
 <span class="sd">    """</span>
 
     <span class="n">feature_report</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
@@ -1563,9 +1140,7 @@ included into the plot.</p>
         <span class="n">sorted_features</span> <span class="o">=</span> <span class="n">sorted_features</span><span class="p">[</span><span class="o">-</span><span class="n">top_n</span><span class="p">:]</span>
 
     <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">height_per_subplot</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_features</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="n">width_per_subplot</span> <span class="o">=</span> <span class="mi">10</span>
-        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width_per_subplot</span><span class="p">,</span> <span class="n">height_per_subplot</span><span class="p">))</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="o">**</span><span class="n">plot_kwargs</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">position</span><span class="p">,</span> <span class="n">feature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sorted_features</span><span class="p">):</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iterations_results</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">iterations_results</span><span class="p">[</span><span class="s1">'feature'</span><span class="p">]</span><span class="o">==</span><span class="n">feature</span><span class="p">][</span><span class="s1">'importance'</span><span class="p">],</span>
@@ -1577,12 +1152,13 @@ included into the plot.</p>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plot_y_label</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plot_title</span><span class="p">)</span>
 
-    <span class="n">fig_text</span> <span class="o">=</span> <span class="s2">"Train AUC: </span><span class="si">{}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">"</span> \
-               <span class="s2">"Test AUC: </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span> \
-                   <span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">auc_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auc_test</span><span class="p">)</span>
-
-    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">fig_text</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">'axes fraction'</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results_text</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">'axes fraction'</span><span class="p">,</span>
                 <span class="n">textcoords</span><span class="o">=</span><span class="s1">'offset points'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'top'</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">ax</span>
 </code></pre>
@@ -1599,14 +1175,14 @@ included into the plot.</p>
 <a class="headerlink" href="#probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
 <p>This model checks for similarity of two samples. A possible use case is analysis whether train sample differs
- from test sample, due to e.g. non-stationarity.</p>
-<p>It assigns to labels to each sample, 0 to first sample, 1 to the second. Then, It randomly selects a portion of
- data to train on. The resulting model tries to distinguish which sample does a given test row comes from. This
- provides insights on how distinguishable these samples are and which features contribute to that. The feature
- importance is calculated using SHAP feature importance.</p>
+    from test sample, due to e.g. non-stationarity.</p>
+<p>It assigns to labels to each sample, 0 to first sample, 1 to the second. Then, It randomly selects a portion of data
+    to train on. The resulting model tries to distinguish which sample does a given test row comes from. This
+    provides insights on how distinguishable these samples are and which features contribute to that. The feature
+    importance is calculated using SHAP feature importance.</p>
 <p>If the model achieves test AUC significantly different than 0.5, it indicates that it is possible to distinguish
- the samples, and therefore, the samples differ. Features with high permutation importance contribute to that
- effect the most. Thus, their distribution might differ between two samples.</p>
+    the samples, and therefore, the samples differ. Features with high permutation importance contribute to that
+    effect the most. Thus, their distribution might differ between two samples.</p>
 <p>This class currently works only with the Tree based models.</p>
 <p><strong>Examples:</strong></p>
 <br/>
@@ -1614,87 +1190,21 @@ included into the plot.</p>
 <pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 <span class="kn">from</span> <span class="nn">probatus.sample_similarity</span> <span class="kn">import</span> <span class="n">SHAPImportanceResemblance</span>
-<span class="n">X1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">X2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">X1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">X2</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">rm</span> <span class="o">=</span> <span class="n">SHAPImportanceResemblance</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
 <span class="n">feature_importance</span> <span class="o">=</span> <span class="n">rm</span><span class="o">.</span><span class="n">fit_compute</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">)</span>
 <span class="n">rm</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </code></pre>
 </div>
+<p><img src="../img/sample_similarity_shap_importance.png" width="320"/>
+<img src="../img/sample_similarity_shap_summary.png" width="320"/></p>
 <div class="doc doc-children">
-<div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.__init__">
-<code class="highlight language-python">
-__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
-<span class="doc doc-properties">
-<small class="doc doc-property doc-property-special"><code>special</code></small>
-</span>
-<a class="headerlink" href="#probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.__init__" title="Permanent link">¶</a></h3>
-<div class="doc doc-contents">
-<p>Initializes the class.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>model</code></td>
-<td><code>model object</code></td>
-<td>
-<p>Binary classification model or pipeline.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>**kwargs</code></td>
-<td><code></code></td>
-<td>
-<p>Keyword arguments that can overwrite inherited default values in BaseResemblanceModel:</p>
-<ul>
-<li><code>test_prc</code>: Percentage of data used to test the model. By default 0.25 is set.</li>
-<li><code>n_jobs</code>: Number of parallel executions. If -1 use all available cores. By default 1.</li>
-<li><code>random_state</code>: The seed used by the random number generator.</li>
-</ul>
-</td>
-<td><code>{}</code></td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span>  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Initializes the class.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        model (model object): Binary classification model or pipeline.</span>
-
-<span class="sd">        **kwargs: Keyword arguments that can overwrite inherited default values in BaseResemblanceModel:</span>
-
-<span class="sd">            - `test_prc`: Percentage of data used to test the model. By default 0.25 is set.</span>
-<span class="sd">            - `n_jobs`: Number of parallel executions. If -1 use all available cores. By default 1.</span>
-<span class="sd">            - `random_state`: The seed used by the random number generator.</span>
-<span class="sd">    """</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-    <span class="bp">self</span><span class="o">.</span><span class="n">plot_title</span> <span class="o">=</span> <span class="s1">'SHAP summary plot'</span>
-</code></pre>
-</div>
-</details>
-</div>
-</div>
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.compute">
 <code class="highlight language-python">
-compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
+compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
 <span class="doc doc-properties">
 <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
 </span>
@@ -1713,11 +1223,11 @@ compute<span class="p">(</span><span class="bp">self</span><span class="p">,</sp
 </thead>
 <tbody>
 <tr>
-<td><code>return_auc</code></td>
+<td><code>return_scores</code></td>
 <td><code>bool</code></td>
 <td>
-<p>Flag indicating whether the method should return a tuple (feature
-importances, train AUC, test AUC), or feature importances. By default the second option is selected.</p>
+<p>Flag indicating whether the method should return a tuple (feature importances, train score,
+test score), or feature importances. By default the second option is selected.</p>
 </td>
 <td><code>False</code></td>
 </tr>
@@ -1733,10 +1243,10 @@ importances, train AUC, test AUC), or feature importances. By default the second
 </thead>
 <tbody>
 <tr>
-<td><code>tuple(pd.DataFrame, float, float) or pd.DataFrame</code></td>
+<td><code>(tuple(pd.DataFrame, float, float) or pd.DataFrame)</code></td>
 <td>
-<p>Depending on value of return_tuple either returns a
-tuple (feature importances, train AUC, test AUC), or feature importances.</p>
+<p>Depending on value of return_tuple either returns a tuple (feature importances, train AUC, test AUC), or
+    feature importances.</p>
 </td>
 </tr>
 </tbody>
@@ -1744,22 +1254,24 @@ tuple (feature importances, train AUC, test AUC), or feature importances.</p>
 <details class="quote">
 <summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Checks if fit() method has been run and computes the output variables.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        return_auc (bool, optional): Flag indicating whether the method should return a tuple (feature</span>
-<span class="sd">         importances, train AUC, test AUC), or feature importances. By default the second option is selected.</span>
+<span class="sd">        return_scores (bool, optional):</span>
+<span class="sd">            Flag indicating whether the method should return a tuple (feature importances, train score,</span>
+<span class="sd">            test score), or feature importances. By default the second option is selected.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        tuple(pd.DataFrame, float, float) or pd.DataFrame: Depending on value of return_tuple either returns a</span>
-<span class="sd">        tuple (feature importances, train AUC, test AUC), or feature importances.</span>
+<span class="sd">        (tuple(pd.DataFrame, float, float) or pd.DataFrame):</span>
+<span class="sd">            Depending on value of return_tuple either returns a tuple (feature importances, train AUC, test AUC), or</span>
+<span class="sd">            feature importances.</span>
 <span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_check_if_fitted</span><span class="p">()</span>
 
-    <span class="k">if</span> <span class="n">return_auc</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auc_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auc_test</span>
+    <span class="k">if</span> <span class="n">return_scores</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">report</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_score</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_score</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">report</span>
 </code></pre>
@@ -1770,13 +1282,13 @@ tuple (feature importances, train AUC, test AUC), or feature importances.</p>
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.fit">
 <code class="highlight language-python">
-fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
 <a class="headerlink" href="#probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.fit" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>This function assigns to labels to each sample, 0 to first sample, 1 to the second. Then, It randomly selects a
- portion of data to train on. The resulting model tries to distinguish which sample does a given test row comes
- from. This provides insights on how distinguishable these samples are and which features contribute to that. The
- feature importance is calculated using SHAP feature importance.</p>
+    portion of data to train on. The resulting model tries to distinguish which sample does a given test row
+    comes from. This provides insights on how distinguishable these samples are and which features contribute to
+    that. The feature importance is calculated using SHAP feature importance.</p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -1792,8 +1304,7 @@ fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 <td><code>X1</code></td>
 <td><code>np.ndarray or pd.DataFrame</code></td>
 <td>
-<p>First sample to be compared. It needs to have the same number of columns
-as X2.</p>
+<p>First sample to be compared. It needs to have the same number of columns as X2.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -1801,8 +1312,7 @@ as X2.</p>
 <td><code>X2</code></td>
 <td><code>np.ndarray or pd.DataFrame</code></td>
 <td>
-<p>Second sample to be compared. It needs to have the same number of columns
-as X1.</p>
+<p>Second sample to be compared. It needs to have the same number of columns as X1.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -1810,39 +1320,75 @@ as X1.</p>
 <td><code>column_names</code></td>
 <td><code>list of str</code></td>
 <td>
-<p>List of feature names of the provided samples. If provided it will be
-used to overwrite the existing feature names. If not provided the existing feature names are used or default
-feature names are generated.</p>
+<p>List of feature names of the provided samples. If provided it will be used to overwrite the existing
+feature names. If not provided the existing feature names are used or default feature names are
+generated.</p>
 </td>
 <td><code>None</code></td>
+</tr>
+<tr>
+<td><code>class_names</code></td>
+<td><code>None, or list of str</code></td>
+<td>
+<p>List of class names assigned, in this case provided samples e.g. ['sample1', 'sample2']. If none, the
+default ['First Sample', 'Second Sample'] are used.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(SHAPImportanceResemblance)</code></td>
+<td>
+<p>Fitted object.</p>
+</td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    This function assigns to labels to each sample, 0 to first sample, 1 to the second. Then, It randomly selects a</span>
-<span class="sd">     portion of data to train on. The resulting model tries to distinguish which sample does a given test row comes</span>
-<span class="sd">     from. This provides insights on how distinguishable these samples are and which features contribute to that. The</span>
-<span class="sd">     feature importance is calculated using SHAP feature importance.</span>
+<span class="sd">        portion of data to train on. The resulting model tries to distinguish which sample does a given test row</span>
+<span class="sd">        comes from. This provides insights on how distinguishable these samples are and which features contribute to</span>
+<span class="sd">        that. The feature importance is calculated using SHAP feature importance.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        X1 (np.ndarray or pd.DataFrame): First sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X2.</span>
+<span class="sd">        X1 (np.ndarray or pd.DataFrame):</span>
+<span class="sd">            First sample to be compared. It needs to have the same number of columns as X2.</span>
 
-<span class="sd">        X2 (np.ndarray or pd.DataFrame): Second sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X1.</span>
+<span class="sd">        X2 (np.ndarray or pd.DataFrame):</span>
+<span class="sd">            Second sample to be compared. It needs to have the same number of columns as X1.</span>
 
-<span class="sd">        column_names (list of str, optional): List of feature names of the provided samples. If provided it will be</span>
-<span class="sd">         used to overwrite the existing feature names. If not provided the existing feature names are used or default</span>
-<span class="sd">         feature names are generated.</span>
+<span class="sd">        column_names (list of str, optional):</span>
+<span class="sd">            List of feature names of the provided samples. If provided it will be used to overwrite the existing</span>
+<span class="sd">            feature names. If not provided the existing feature names are used or default feature names are</span>
+<span class="sd">            generated.</span>
+
+<span class="sd">        class_names (None, or list of str, optional):</span>
+<span class="sd">            List of class names assigned, in this case provided samples e.g. ['sample1', 'sample2']. If none, the</span>
+<span class="sd">            default ['First Sample', 'Second Sample'] are used.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (SHAPImportanceResemblance):</span>
+<span class="sd">            Fitted object.</span>
 <span class="sd">    """</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="o">=</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="o">=</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="o">=</span><span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">)</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">shap_values_test</span> <span class="o">=</span> <span class="n">shap_calc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">shap_values_test</span> <span class="o">=</span> <span class="n">shap_calc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">report</span> <span class="o">=</span> <span class="n">calculate_shap_importance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shap_values_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_names</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span>
 </code></pre>
 </div>
 </details>
@@ -1851,7 +1397,7 @@ feature names are generated.</p>
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.fit_compute">
 <code class="highlight language-python">
-fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">)</span> </code>
+fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">)</span> </code>
 <span class="doc doc-properties">
 <small class="doc doc-property doc-property-inherited"><code>inherited</code></small>
 </span>
@@ -1873,8 +1419,7 @@ fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,
 <td><code>X1</code></td>
 <td><code>np.ndarray or pd.DataFrame</code></td>
 <td>
-<p>First sample to be compared. It needs to have the same number of columns
-as X2.</p>
+<p>First sample to be compared. It needs to have the same number of columns as X2.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -1882,8 +1427,7 @@ as X2.</p>
 <td><code>X2</code></td>
 <td><code>np.ndarray or pd.DataFrame</code></td>
 <td>
-<p>Second sample to be compared. It needs to have the same number of columns
-as X1.</p>
+<p>Second sample to be compared. It needs to have the same number of columns as X1.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -1891,18 +1435,27 @@ as X1.</p>
 <td><code>column_names</code></td>
 <td><code>list of str</code></td>
 <td>
-<p>List of feature names of the provided samples. If provided it will be
-used to overwrite the existing feature names. If not provided the existing feature names are used or default
-feature names are generated.</p>
+<p>List of feature names of the provided samples. If provided it will be used to overwrite the existing
+feature names. If not provided the existing feature names are used or default feature names are
+generated.</p>
 </td>
 <td><code>None</code></td>
 </tr>
 <tr>
-<td><code>return_auc</code></td>
+<td><code>class_names</code></td>
+<td><code>None, or list of str</code></td>
+<td>
+<p>List of class names assigned, in this case provided samples e.g. ['sample1', 'sample2']. If none, the
+default ['First Sample', 'Second Sample'] are used.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>return_scores</code></td>
 <td><code>bool</code></td>
 <td>
-<p>Flag indicating whether the method should return a tuple (feature
-importances, train AUC, test AUC), or only feature importances. By default the second option is selected.</p>
+<p>Flag indicating whether the method should return a tuple (feature importances, train score,
+test score), or feature importances. By default the second option is selected.</p>
 </td>
 <td><code>False</code></td>
 </tr>
@@ -1910,14 +1463,7 @@ importances, train AUC, test AUC), or only feature importances. By default the s
 <td><code>**fit_kwargs</code></td>
 <td><code></code></td>
 <td>
-<p>keyword arguments passed to the fit() method:</p>
-<ul>
-<li><code>X1</code>: First sample to be compared. It needs to have the same number of columns as X2.</li>
-<li><code>X2</code>: Second sample to be compared. It needs to have the same number of columns as X1.</li>
-<li><code>column_names</code>: List of feature names of the provided samples. If provided it will be
- used to overwrite the existing feature names. If not provided the existing feature names are used or default
- feature names are generated.</li>
-</ul>
+<p>In case any other arguments are accepted by fit() method, they can be passed as keyword arguments</p>
 </td>
 <td><code>{}</code></td>
 </tr>
@@ -1933,10 +1479,10 @@ importances, train AUC, test AUC), or only feature importances. By default the s
 </thead>
 <tbody>
 <tr>
-<td><code>tuple of (pd.DataFrame, float, float) or pd.DataFrame</code></td>
+<td><code>(tuple of (pd.DataFrame, float, float) or pd.DataFrame)</code></td>
 <td>
-<p>Depending on value of return_tuple either returns a
- tuple (feature importances, train AUC, test AUC), or feature importances.</p>
+<p>Depending on value of return_tuple either returns a tuple (feature importances, train AUC, test AUC), or
+    feature importances.</p>
 </td>
 </tr>
 </tbody>
@@ -1944,38 +1490,41 @@ importances, train AUC, test AUC), or only feature importances. By default the s
 <details class="quote">
 <summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">fit_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_auc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">fit_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Fits the resemblance model and computes the report regarding feature importance.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        X1 (np.ndarray or pd.DataFrame): First sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X2.</span>
+<span class="sd">        X1 (np.ndarray or pd.DataFrame):</span>
+<span class="sd">            First sample to be compared. It needs to have the same number of columns as X2.</span>
 
-<span class="sd">        X2 (np.ndarray or pd.DataFrame): Second sample to be compared. It needs to have the same number of columns</span>
-<span class="sd">         as X1.</span>
+<span class="sd">        X2 (np.ndarray or pd.DataFrame):</span>
+<span class="sd">            Second sample to be compared. It needs to have the same number of columns as X1.</span>
 
-<span class="sd">        column_names (list of str, optional): List of feature names of the provided samples. If provided it will be</span>
-<span class="sd">         used to overwrite the existing feature names. If not provided the existing feature names are used or default</span>
-<span class="sd">         feature names are generated.</span>
+<span class="sd">        column_names (list of str, optional):</span>
+<span class="sd">            List of feature names of the provided samples. If provided it will be used to overwrite the existing</span>
+<span class="sd">            feature names. If not provided the existing feature names are used or default feature names are</span>
+<span class="sd">            generated.</span>
 
-<span class="sd">        return_auc (bool, optional): Flag indicating whether the method should return a tuple (feature</span>
-<span class="sd">         importances, train AUC, test AUC), or only feature importances. By default the second option is selected.</span>
+<span class="sd">        class_names (None, or list of str, optional):</span>
+<span class="sd">            List of class names assigned, in this case provided samples e.g. ['sample1', 'sample2']. If none, the</span>
+<span class="sd">            default ['First Sample', 'Second Sample'] are used.</span>
 
-<span class="sd">        **fit_kwargs: keyword arguments passed to the fit() method:</span>
 
-<span class="sd">            - `X1`: First sample to be compared. It needs to have the same number of columns as X2.</span>
-<span class="sd">            - `X2`: Second sample to be compared. It needs to have the same number of columns as X1.</span>
-<span class="sd">            - `column_names`: List of feature names of the provided samples. If provided it will be</span>
-<span class="sd">             used to overwrite the existing feature names. If not provided the existing feature names are used or default</span>
-<span class="sd">             feature names are generated.</span>
+<span class="sd">        return_scores (bool, optional):</span>
+<span class="sd">            Flag indicating whether the method should return a tuple (feature importances, train score,</span>
+<span class="sd">            test score), or feature importances. By default the second option is selected.</span>
+
+<span class="sd">        **fit_kwargs:</span>
+<span class="sd">            In case any other arguments are accepted by fit() method, they can be passed as keyword arguments</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        tuple of (pd.DataFrame, float, float) or pd.DataFrame: Depending on value of return_tuple either returns a</span>
-<span class="sd">         tuple (feature importances, train AUC, test AUC), or feature importances.</span>
+<span class="sd">        (tuple of (pd.DataFrame, float, float) or pd.DataFrame):</span>
+<span class="sd">            Depending on value of return_tuple either returns a tuple (feature importances, train AUC, test AUC), or</span>
+<span class="sd">            feature importances.</span>
 <span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">return_auc</span><span class="o">=</span><span class="n">return_auc</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">X2</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">return_scores</span><span class="o">=</span><span class="n">return_scores</span><span class="p">)</span>
 </code></pre>
 </div>
 </details>
@@ -2016,7 +1565,8 @@ get_data_splits<span class="p">(</span><span class="bp">self</span><span class="
 <span class="sd">    Returns the data splits used to train the Resemblance model.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        (pd.DataFrame, pd.DataFrame, pd.Series, pd.Series): X_train, X_test, y_train, y_test.</span>
+<span class="sd">        (pd.DataFrame, pd.DataFrame, pd.Series, pd.Series):</span>
+<span class="sd">            X_train, X_test, y_train, y_test.</span>
 <span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_check_if_fitted</span><span class="p">()</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span>
@@ -2042,9 +1592,9 @@ get_shap_values<span class="p">(</span><span class="bp">self</span><span class="
 </thead>
 <tbody>
 <tr>
-<td><code></code></td>
+<td><code>(np.array)</code></td>
 <td>
-<p>(np.array) SHAP values generated on the test set.</p>
+<p>SHAP values generated on the test set.</p>
 </td>
 </tr>
 </tbody>
@@ -2053,12 +1603,13 @@ get_shap_values<span class="p">(</span><span class="bp">self</span><span class="
 <summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
 <div class="highlight">
 <pre><span></span><code><span class="k">def</span> <span class="nf">get_shap_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="sd">'''</span>
+    <span class="sd">"""</span>
 <span class="sd">    Gets the SHAP values generated on the test set.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">         (np.array) SHAP values generated on the test set.</span>
-<span class="sd">    '''</span>
+<span class="sd">         (np.array):</span>
+<span class="sd">            SHAP values generated on the test set.</span>
+<span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_check_if_fitted</span><span class="p">()</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">shap_values_test</span>
 </code></pre>
@@ -2069,7 +1620,7 @@ get_shap_values<span class="p">(</span><span class="bp">self</span><span class="
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.plot">
 <code class="highlight language-python">
-plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">'bar'</span><span class="p">,</span> <span class="o">**</span><span class="n">summary_plot_kwargs</span><span class="p">)</span> </code>
+plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">'bar'</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">summary_plot_kwargs</span><span class="p">)</span> </code>
 <a class="headerlink" href="#probatus.sample_similarity.resemblance_model.SHAPImportanceResemblance.plot" title="Permanent link">¶</a></h3>
 <div class="doc doc-contents">
 <p>Plots the resulting AUC of the model as well as the feature importances.</p>
@@ -2086,12 +1637,21 @@ plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <tbody>
 <tr>
 <td><code>plot_type</code></td>
-<td><code>Optional, str</code></td>
+<td><code>str</code></td>
 <td>
 <p>Type of plot, used to compute shap.summary_plot. By default 'bar', available ones
 are  "dot", "bar", "violin",</p>
 </td>
 <td><code>'bar'</code></td>
+</tr>
+<tr>
+<td><code>show</code></td>
+<td><code>bool</code></td>
+<td>
+<p>If True, the plots are showed to the user, otherwise they are not shown. Not showing plot can be useful,
+when you want to edit the returned axis, before showing it.</p>
+</td>
+<td><code>True</code></td>
 </tr>
 <tr>
 <td><code>**summary_plot_kwargs</code></td>
@@ -2113,7 +1673,7 @@ are  "dot", "bar", "violin",</p>
 </thead>
 <tbody>
 <tr>
-<td><code>matplotlib.axes, optional</code></td>
+<td><code>(matplotlib.axes)</code></td>
 <td>
 <p>Axes that include the plot.</p>
 </td>
@@ -2123,34 +1683,42 @@ are  "dot", "bar", "violin",</p>
 <details class="quote">
 <summary>Source code in <code>probatus/sample_similarity/resemblance_model.py</code></summary>
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">'bar'</span><span class="p">,</span> <span class="o">**</span><span class="n">summary_plot_kwargs</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">'bar'</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">summary_plot_kwargs</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Plots the resulting AUC of the model as well as the feature importances.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        plot_type (Optional, str): Type of plot, used to compute shap.summary_plot. By default 'bar', available ones</span>
-<span class="sd">         are  "dot", "bar", "violin",</span>
+<span class="sd">        plot_type (str, optional): Type of plot, used to compute shap.summary_plot. By default 'bar', available ones</span>
+<span class="sd">            are  "dot", "bar", "violin",</span>
 
-<span class="sd">        **summary_plot_kwargs: kwargs passed to the shap.summary_plot.</span>
+<span class="sd">        show (bool, optional):</span>
+<span class="sd">            If True, the plots are showed to the user, otherwise they are not shown. Not showing plot can be useful,</span>
+<span class="sd">            when you want to edit the returned axis, before showing it.</span>
+
+<span class="sd">        **summary_plot_kwargs:</span>
+<span class="sd">            kwargs passed to the shap.summary_plot.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        matplotlib.axes, optional: Axes that include the plot.</span>
+<span class="sd">        (matplotlib.axes):</span>
+<span class="sd">            Axes that include the plot.</span>
 <span class="sd">    """</span>
 
     <span class="c1"># This line serves as a double check if the object has been fitted</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_check_if_fitted</span><span class="p">()</span>
 
     <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shap_values_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="n">plot_type</span><span class="p">,</span>
-                      <span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s1">'First Sample'</span><span class="p">,</span> <span class="s1">'Second Sample'</span><span class="p">],</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">summary_plot_kwargs</span><span class="p">)</span>
+                      <span class="n">class_names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">class_names</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">summary_plot_kwargs</span><span class="p">)</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">plot_title</span><span class="p">)</span>
 
-    <span class="n">fig_text</span> <span class="o">=</span> <span class="s2">"Train AUC: </span><span class="si">{}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">"</span> \
-               <span class="s2">"Test AUC: </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span> \
-                   <span class="nb">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">auc_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">auc_test</span><span class="p">)</span>
-
-    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">fig_text</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">'axes fraction'</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results_text</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">'axes fraction'</span><span class="p">,</span>
                 <span class="n">textcoords</span><span class="o">=</span><span class="s1">'offset points'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'top'</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
     <span class="k">return</span> <span class="n">ax</span>
 </code></pre>
 </div>

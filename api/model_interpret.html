@@ -187,7 +187,7 @@
     <li class="md-tabs__item">
       
       
-      <a href="../tutorials/nb_shap_model_interpreter.html" class="md-tabs__link">
+      <a href="../tutorials/nb_shap_feature_elimination.html" class="md-tabs__link">
         Tutorials
       </a>
     </li>
@@ -311,8 +311,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../tutorials/nb_shap_model_interpreter.html" class="md-nav__link">
-      Tree-based Model Interpretation with SHAP
+    <a href="../tutorials/nb_shap_feature_elimination.html" class="md-nav__link">
+      ShapRFECV - Recursive Feature Elimination using SHAP importance
     </a>
   </li>
 
@@ -323,8 +323,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../tutorials/nb_shap_feature_elimination.html" class="md-nav__link">
-      Recursive Feature Elimination using SHAP importance and CV
+    <a href="../tutorials/nb_shap_model_interpreter.html" class="md-nav__link">
+      Tree-based Model Interpretation with SHAP
     </a>
   </li>
 
@@ -361,6 +361,18 @@
   <li class="md-nav__item">
     <a href="../tutorials/nb_distribution_statistics.html" class="md-nav__link">
       Univariate Sample Similarity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tutorials/nb_custom_scoring.html" class="md-nav__link">
+      Custom Scoring Metrics
     </a>
   </li>
 
@@ -439,13 +451,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#probatus.interpret.model_interpret" class="md-nav__link">
-    probatus.interpret.model_interpret
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#probatus.interpret.model_interpret.ShapModelInterpreter" class="md-nav__link">
@@ -538,6 +543,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="utils.html" class="md-nav__link">
+      probatus.utils
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -565,13 +582,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#probatus.interpret.model_interpret" class="md-nav__link">
-    probatus.interpret.model_interpret
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#probatus.interpret.model_interpret.ShapModelInterpreter" class="md-nav__link">
@@ -642,8 +652,6 @@
 <p>The aim of this module is providing tools for model interpretation using <a href="https://shap.readthedocs.io/en/latest/">SHAP</a> library.
 The class below is a convenience wrapper, that implements multiple plots for tree-based models.</p>
 <div class="doc doc-object doc-module">
-<h2 class="hidden-toc" href="#probatus.interpret.model_interpret" id="probatus.interpret.model_interpret" style="visibility: hidden; position: absolute;">
-        <a class="headerlink" href="#probatus.interpret.model_interpret" title="Permanent link">&para;</a></h2>
 <div class="doc doc-contents first">
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
@@ -655,20 +663,21 @@ The class below is a convenience wrapper, that implements multiple plots for tre
       <a class="headerlink" href="#probatus.interpret.model_interpret.ShapModelInterpreter" title="Permanent link">&para;</a></h2>
 <div class="doc doc-contents ">
 <p>This class is a wrapper that allows to easily analyse model's features. It allows to plot SHAP feature importance,
- SHAP summary plot and SHAP dependence plots.</p>
+    SHAP summary plot and SHAP dependence plots.</p>
 <p><strong>Examples:</strong></p>
 <br />
 <div class="codehilite">
 <pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">probatus.interpret</span> <span class="kn">import</span> <span class="n">ShapModelInterpreter</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">feature_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'f1'</span><span class="p">,</span> <span class="s1">'f2'</span><span class="p">,</span> <span class="s1">'f3'</span><span class="p">,</span> <span class="s1">'f4'</span><span class="p">]</span>
 
 <span class="c1"># Prepare two samples</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
@@ -676,23 +685,27 @@ The class below is a convenience wrapper, that implements multiple plots for tre
 <span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">'balanced'</span><span class="p">,</span> <span class="n">n_estimators</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
-<span class="c1"># Train ShapModelAnalyser</span>
+<span class="c1"># Train ShapModelInterpreter</span>
 <span class="n">shap_interpreter</span> <span class="o">=</span> <span class="n">ShapModelInterpreter</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
 <span class="n">feature_importance</span> <span class="o">=</span> <span class="n">shap_interpreter</span><span class="o">.</span><span class="n">fit_compute</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
 <span class="c1"># Make plots</span>
-<span class="n">shap_interpreter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">'importance'</span><span class="p">)</span>
-<span class="n">shap_interpreter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">'summary'</span><span class="p">)</span>
-<span class="n">shap_interpreter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">'dependence'</span><span class="p">,</span> <span class="n">target_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'f1'</span><span class="p">,</span> <span class="s1">'f2'</span><span class="p">])</span>
-<span class="n">shap_interpreter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">'sample'</span><span class="p">,</span> <span class="n">samples_index</span><span class="o">=</span><span class="p">[</span><span class="mi">521</span><span class="p">,</span> <span class="mi">78</span><span class="p">])</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">shap_interpreter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">'importance'</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">shap_interpreter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">'summary'</span><span class="p">)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">shap_interpreter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">'dependence'</span><span class="p">,</span> <span class="n">target_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'f1'</span><span class="p">,</span> <span class="s1">'f2'</span><span class="p">])</span>
+<span class="n">ax4</span> <span class="o">=</span> <span class="n">shap_interpreter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">'sample'</span><span class="p">,</span> <span class="n">samples_index</span><span class="o">=</span><span class="p">[</span><span class="n">X_test</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]])</span>
 </code></pre>
 </div>
+<p><img src="../img/model_interpret_importance.png" width="320" />
+<img src="../img/model_interpret_summary.png" width="320" />
+<img src="../img/model_interpret_dep.png" width="320" />
+<img src="../img/model_interpret_sample.png" width="320" /></p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="probatus.interpret.model_interpret.ShapModelInterpreter.__init__">
 
         <code class="highlight language-python">
-__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clf</span><span class="p">)</span>        </code>
+__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>        </code>
 
   <span class="doc doc-properties">
       <small class="doc doc-property doc-property-special"><code>special</code></small>
@@ -720,20 +733,59 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 </td>
 <td><em>required</em></td>
 </tr>
+<tr>
+<td><code>scoring</code></td>
+<td><code>string or probatus.utils.Scorer</code></td>
+<td>
+<p>Metric for which the model performance is calculated. It can be either a metric name  aligned with
+predefined <a href="https://scikit-learn.org/stable/modules/model_evaluation.html">classification scorers names in sklearn</a>.
+Another option is using probatus.utils.Scorer to define a custom metric.</p>
+</td>
+<td><code>'roc_auc'</code></td>
+</tr>
+<tr>
+<td><code>verbose</code></td>
+<td><code>int</code></td>
+<td>
+<p>Controls verbosity of the output:</p>
+<ul>
+<li>0 - nether prints nor warnings are shown</li>
+<li>1 - 50 - only most important warnings</li>
+<li>51 - 100 - shows other warnings and prints</li>
+<li>above 100 - presents all prints and all warnings (including SHAP warnings).</li>
+</ul>
+</td>
+<td><code>0</code></td>
+</tr>
 </tbody>
 </table>
 <details class="quote">
           <summary>Source code in <code>probatus/interpret/model_interpret.py</code></summary>
           <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clf</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clf</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'roc_auc'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Initializes the class.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        clf (binary classifier): Model fitted on X_train.</span>
+<span class="sd">        clf (binary classifier):</span>
+<span class="sd">            Model fitted on X_train.</span>
+
+<span class="sd">        scoring (string or probatus.utils.Scorer, optional):</span>
+<span class="sd">            Metric for which the model performance is calculated. It can be either a metric name  aligned with</span>
+<span class="sd">            predefined [classification scorers names in sklearn](https://scikit-learn.org/stable/modules/model_evaluation.html).</span>
+<span class="sd">            Another option is using probatus.utils.Scorer to define a custom metric.</span>
+
+<span class="sd">        verbose (int, optional):</span>
+<span class="sd">            Controls verbosity of the output:</span>
+
+<span class="sd">            - 0 - nether prints nor warnings are shown</span>
+<span class="sd">            - 1 - 50 - only most important warnings</span>
+<span class="sd">            - 51 - 100 - shows other warnings and prints</span>
+<span class="sd">            - above 100 - presents all prints and all warnings (including SHAP warnings).</span>
 <span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">clf</span> <span class="o">=</span> <span class="n">clf</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">fitted</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">scorer</span> <span class="o">=</span> <span class="n">get_single_scorer</span><span class="p">(</span><span class="n">scoring</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
 </code></pre>
 </div>
 </details>
@@ -743,12 +795,35 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <h3 class="doc doc-heading" id="probatus.interpret.model_interpret.ShapModelInterpreter.compute">
 
         <code class="highlight language-python">
-compute<span class="p">(</span><span class="bp">self</span><span class="p">)</span>        </code>
+compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>        </code>
 
 
       <a class="headerlink" href="#probatus.interpret.model_interpret.ShapModelInterpreter.compute" title="Permanent link">&para;</a></h3>
 <div class="doc doc-contents ">
 <p>Computes the DataFrame, that presents the importance of each feature.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>return_scores</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Flag indicating whether the method should return the train and test score of the model, together with
+the model interpretation report. If true, the output of this method is a tuple of DataFrame, float,
+float.</p>
+</td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Returns:</strong></p>
 <table>
 <thead>
@@ -759,9 +834,10 @@ compute<span class="p">(</span><span class="bp">self</span><span class="p">)</sp
 </thead>
 <tbody>
 <tr>
-<td><code>(pd.DataFrame)</code></td>
+<td><code>(pd.DataFrame or tuple(pd.DataFrame, float, float))</code></td>
 <td>
-<p>Dataframe with SHAP feature importance.</p>
+<p>Dataframe with SHAP feature importance, or tuple containing the dataframe, train and test scores of the
+    model.</p>
 </td>
 </tr>
 </tbody>
@@ -769,18 +845,43 @@ compute<span class="p">(</span><span class="bp">self</span><span class="p">)</sp
 <details class="quote">
           <summary>Source code in <code>probatus/interpret/model_interpret.py</code></summary>
           <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Computes the DataFrame, that presents the importance of each feature.</span>
 
+<span class="sd">    Args:</span>
+<span class="sd">        return_scores (bool, optional):</span>
+<span class="sd">            Flag indicating whether the method should return the train and test score of the model, together with</span>
+<span class="sd">            the model interpretation report. If true, the output of this method is a tuple of DataFrame, float,</span>
+<span class="sd">            float.</span>
+
 <span class="sd">    Returns:</span>
-<span class="sd">        (pd.DataFrame): Dataframe with SHAP feature importance.</span>
+<span class="sd">        (pd.DataFrame or tuple(pd.DataFrame, float, float)):</span>
+<span class="sd">            Dataframe with SHAP feature importance, or tuple containing the dataframe, train and test scores of the</span>
+<span class="sd">            model.</span>
 <span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_check_if_fitted</span><span class="p">()</span>
 
     <span class="c1"># Compute SHAP importance</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">importance_df</span> <span class="o">=</span> <span class="n">calculate_shap_importance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shap_values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_names</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">importance_df</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">importance_df_train</span> <span class="o">=</span> <span class="n">calculate_shap_importance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shap_values_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_names</span><span class="p">,</span>
+                                                         <span class="n">output_columns_suffix</span><span class="o">=</span><span class="s1">'_train'</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">importance_df_test</span> <span class="o">=</span> <span class="n">calculate_shap_importance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shap_values_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_names</span><span class="p">,</span>
+                                                        <span class="n">output_columns_suffix</span><span class="o">=</span><span class="s1">'_test'</span><span class="p">)</span>
+
+    <span class="c1"># Concatenate the train and test, sort by test set importance and reorder the columns</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">importance_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">importance_df_train</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">importance_df_test</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span>\
+        <span class="n">sort_values</span><span class="p">(</span><span class="s1">'mean_abs_shap_value_test'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[[</span>
+        <span class="s1">'mean_abs_shap_value_test'</span><span class="p">,</span>
+        <span class="s1">'mean_abs_shap_value_train'</span><span class="p">,</span>
+        <span class="s1">'mean_shap_value_test'</span><span class="p">,</span>
+        <span class="s1">'mean_shap_value_train'</span>
+    <span class="p">]]</span>
+
+    <span class="k">if</span> <span class="n">return_scores</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">importance_df</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_score</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_score</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">importance_df</span>
 </code></pre>
 </div>
 </details>
@@ -841,19 +942,18 @@ fit<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 </tr>
 <tr>
 <td><code>column_names</code></td>
-<td><code>Optional, None, or list of str</code></td>
+<td><code>None, or list of str</code></td>
 <td>
-<p>List of feature names for the dataset. If None, then column
-names from the X_train dataframe are used.</p>
+<p>List of feature names for the dataset. If None, then column names from the X_train dataframe are used.</p>
 </td>
 <td><code>None</code></td>
 </tr>
 <tr>
 <td><code>class_names</code></td>
-<td><code>Optional, None, or list of str</code></td>
+<td><code>None, or list of str</code></td>
 <td>
-<p>List of class names e.g. ['neg', 'pos']. If none, the default
-['Negative Class', 'Positive Class'] are used.</p>
+<p>List of class names e.g. ['neg', 'pos']. If none, the default ['Negative Class', 'Positive Class'] are
+used.</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -861,7 +961,7 @@ names from the X_train dataframe are used.</p>
 <td><code>approximate</code></td>
 <td><code>boolean</code></td>
 <td>
-<p>, if True uses shap approximations - less accurate, but very fast.</p>
+<p>if True uses shap approximations - less accurate, but very fast.</p>
 </td>
 <td><code>False</code></td>
 </tr>
@@ -869,7 +969,7 @@ names from the X_train dataframe are used.</p>
 <td><code>**shap_kwargs</code></td>
 <td><code></code></td>
 <td>
-<p>keyword arguments passed to shap.TreeExplainer.</p>
+<p>keyword arguments passed to <a href="https://shap.readthedocs.io/en/latest/generated/shap.TreeExplainer.html">shap.TreeExplainer</a>.</p>
 </td>
 <td><code>{}</code></td>
 </tr>
@@ -884,50 +984,59 @@ names from the X_train dataframe are used.</p>
 <span class="sd">    Fits the object and calculates the shap values for the provided datasets.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        X_train (pd.DataFrame): Dataframe containing training data.</span>
-<span class="sd">        X_test (pd.DataFrame): Dataframe containing test data.</span>
-<span class="sd">        y_train (pd.Series): Series of binary labels for train data.</span>
-<span class="sd">        y_test (pd.Series): Series of binary labels for test data.</span>
-<span class="sd">        column_names (Optional, None, or list of str): List of feature names for the dataset. If None, then column</span>
-<span class="sd">         names from the X_train dataframe are used.</span>
-<span class="sd">        class_names (Optional, None, or list of str): List of class names e.g. ['neg', 'pos']. If none, the default</span>
-<span class="sd">         ['Negative Class', 'Positive Class'] are used.</span>
-<span class="sd">        approximate (boolean):, if True uses shap approximations - less accurate, but very fast.</span>
-<span class="sd">        **shap_kwargs: keyword arguments passed to shap.TreeExplainer.</span>
+<span class="sd">        X_train (pd.DataFrame):</span>
+<span class="sd">            Dataframe containing training data.</span>
+
+<span class="sd">        X_test (pd.DataFrame):</span>
+<span class="sd">            Dataframe containing test data.</span>
+
+<span class="sd">        y_train (pd.Series):</span>
+<span class="sd">            Series of binary labels for train data.</span>
+
+<span class="sd">        y_test (pd.Series):</span>
+<span class="sd">            Series of binary labels for test data.</span>
+
+<span class="sd">        column_names (None, or list of str, optional):</span>
+<span class="sd">            List of feature names for the dataset. If None, then column names from the X_train dataframe are used.</span>
+
+<span class="sd">        class_names (None, or list of str, optional):</span>
+<span class="sd">            List of class names e.g. ['neg', 'pos']. If none, the default ['Negative Class', 'Positive Class'] are</span>
+<span class="sd">            used.</span>
+
+<span class="sd">        approximate (boolean, optional):</span>
+<span class="sd">            if True uses shap approximations - less accurate, but very fast.</span>
+
+<span class="sd">        **shap_kwargs:</span>
+<span class="sd">            keyword arguments passed to [shap.TreeExplainer](https://shap.readthedocs.io/en/latest/generated/shap.TreeExplainer.html).</span>
 <span class="sd">    """</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span> <span class="o">=</span> <span class="n">assure_pandas_df</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span> <span class="o">=</span> <span class="n">assure_pandas_df</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span> <span class="o">=</span> <span class="n">y_train</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">y_test</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_names</span> <span class="o">=</span> <span class="n">preprocess_data</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_name</span><span class="o">=</span><span class="s1">'X_train'</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span>
+                                                      <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">preprocess_data</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">X_name</span><span class="o">=</span><span class="s1">'X_test'</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span> <span class="o">=</span> <span class="n">preprocess_labels</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_name</span><span class="o">=</span><span class="s1">'y_train'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">preprocess_labels</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_name</span><span class="o">=</span><span class="s1">'y_test'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">)</span>
 
     <span class="c1"># Set class names</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">class_names</span> <span class="o">=</span> <span class="n">class_names</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Negative Class'</span><span class="p">,</span> <span class="s1">'Positive Class'</span><span class="p">]</span>
 
-    <span class="c1"># Set column names</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">column_names</span> <span class="o">=</span> <span class="n">assure_column_names_consistency</span><span class="p">(</span><span class="n">column_names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">)</span>
-
     <span class="c1"># Calculate Metrics</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">auc_train</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">auc_test</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">])</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">results_text</span> <span class="o">=</span> <span class="s2">"Train AUC: </span><span class="si">{}</span><span class="s2">,</span><span class="se">\n</span><span class="s2">Test AUC: </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">auc_train</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">auc_test</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-    <span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">train_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scorer</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">test_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scorer</span><span class="o">.</span><span class="n">score</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span><span class="p">)</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">shap_values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">explainer</span> <span class="o">=</span> <span class="n">shap_calc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="n">approximate</span><span class="o">=</span><span class="n">approximate</span><span class="p">,</span>
-                                                 <span class="n">return_explainer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span> <span class="o">**</span><span class="n">shap_kwargs</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">results_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'Train </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">scorer</span><span class="o">.</span><span class="n">metric_name</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_score</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">,</span><span class="se">\n</span><span class="s1">'</span> \
+                        <span class="sa">f</span><span class="s1">'Test </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">scorer</span><span class="o">.</span><span class="n">metric_name</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_score</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">.'</span>
 
-    <span class="c1"># Get expected_value from the explainer</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">expected_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">explainer</span><span class="o">.</span><span class="n">expected_value</span>
-    <span class="c1"># For sklearn models the expected values consists of two elements (negative_class and positive_class)</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expected_value</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expected_value</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">expected_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">shap_values_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_value_train</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdp_train</span> <span class="o">=</span> \
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prep_shap_related_variables</span><span class="p">(</span><span class="n">clf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y_train</span><span class="p">,</span> <span class="n">approximate</span><span class="o">=</span><span class="n">approximate</span><span class="p">,</span>
+                                          <span class="n">column_names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column_names</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">class_names</span><span class="p">,</span>
+                                          <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span> <span class="o">**</span><span class="n">shap_kwargs</span><span class="p">)</span>
 
-    <span class="c1"># Initialize tree dependence plotter</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">tdp</span> <span class="o">=</span> <span class="n">TreeDependencePlotter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y_test</span><span class="p">,</span> <span class="n">precalc_shap</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shap_values</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">shap_values_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_value_test</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdp_test</span> <span class="o">=</span> \
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prep_shap_related_variables</span><span class="p">(</span><span class="n">clf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">clf</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y_test</span><span class="p">,</span> <span class="n">approximate</span><span class="o">=</span><span class="n">approximate</span><span class="p">,</span>
+                                          <span class="n">column_names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column_names</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">class_names</span><span class="p">,</span>
+                                          <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span> <span class="o">**</span><span class="n">shap_kwargs</span><span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">fitted</span> <span class="o">=</span> <span class="kc">True</span>
 </code></pre>
@@ -939,7 +1048,7 @@ names from the X_train dataframe are used.</p>
 <h3 class="doc doc-heading" id="probatus.interpret.model_interpret.ShapModelInterpreter.fit_compute">
 
         <code class="highlight language-python">
-fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">approximate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">shap_kwargs</span><span class="p">)</span>        </code>
+fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">approximate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">shap_kwargs</span><span class="p">)</span>        </code>
 
 
       <a class="headerlink" href="#probatus.interpret.model_interpret.ShapModelInterpreter.fit_compute" title="Permanent link">&para;</a></h3>
@@ -990,19 +1099,18 @@ fit_compute<span class="p">(</span><span class="bp">self</span><span class="p">,
 </tr>
 <tr>
 <td><code>column_names</code></td>
-<td><code>Optional, None, or list of str</code></td>
+<td><code>None, or list of str</code></td>
 <td>
-<p>List of feature names for the dataset. If None, then column
-names from the X_train dataframe are used.</p>
+<p>List of feature names for the dataset. If None, then column names from the X_train dataframe are used.</p>
 </td>
 <td><code>None</code></td>
 </tr>
 <tr>
 <td><code>class_names</code></td>
-<td><code>Optional, None, or list of str</code></td>
+<td><code>None, or list of str</code></td>
 <td>
-<p>List of class names e.g. ['neg', 'pos']. If none, the default
-['Negative Class', 'Positive Class'] are used.</p>
+<p>List of class names e.g. ['neg', 'pos']. If none, the default ['Negative Class', 'Positive Class'] are
+used.</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -1010,7 +1118,17 @@ names from the X_train dataframe are used.</p>
 <td><code>approximate</code></td>
 <td><code>boolean</code></td>
 <td>
-<p>, if True uses shap approximations - less accurate, but very fast.</p>
+<p>if True uses shap approximations - less accurate, but very fast.</p>
+</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>return_scores</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Flag indicating whether the method should return the train and test score of the model, together with
+the model interpretation report. If true, the output of this method is a tuple of DataFrame, float,
+float.</p>
 </td>
 <td><code>False</code></td>
 </tr>
@@ -1018,7 +1136,8 @@ names from the X_train dataframe are used.</p>
 <td><code>**shap_kwargs</code></td>
 <td><code></code></td>
 <td>
-<p>keyword arguments passed to shap.TreeExplainer.</p>
+<p>keyword arguments passed to
+keyword arguments passed to <a href="https://shap.readthedocs.io/en/latest/generated/shap.TreeExplainer.html">shap.TreeExplainer</a>.</p>
 </td>
 <td><code>{}</code></td>
 </tr>
@@ -1034,9 +1153,10 @@ names from the X_train dataframe are used.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>(pd.DataFrame)</code></td>
+<td><code>(pd.DataFrame or tuple(pd.DataFrame, float, float))</code></td>
 <td>
-<p>Dataframe with SHAP feature importance.</p>
+<p>Dataframe with SHAP feature importance, or tuple containing the dataframe, train and test scores of the
+    model.</p>
 </td>
 </tr>
 </tbody>
@@ -1045,24 +1165,45 @@ names from the X_train dataframe are used.</p>
           <summary>Source code in <code>probatus/interpret/model_interpret.py</code></summary>
           <div class="highlight">
 <pre><span></span><code><span class="k">def</span> <span class="nf">fit_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>  <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">approximate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                <span class="o">**</span><span class="n">shap_kwargs</span><span class="p">):</span>
+                <span class="n">return_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">shap_kwargs</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Fits the object and calculates the shap values for the provided datasets.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        X_train (pd.DataFrame): Dataframe containing training data.</span>
-<span class="sd">        X_test (pd.DataFrame): Dataframe containing test data.</span>
-<span class="sd">        y_train (pd.Series): Series of binary labels for train data.</span>
-<span class="sd">        y_test (pd.Series): Series of binary labels for test data.</span>
-<span class="sd">        column_names (Optional, None, or list of str): List of feature names for the dataset. If None, then column</span>
-<span class="sd">         names from the X_train dataframe are used.</span>
-<span class="sd">        class_names (Optional, None, or list of str): List of class names e.g. ['neg', 'pos']. If none, the default</span>
-<span class="sd">         ['Negative Class', 'Positive Class'] are used.</span>
-<span class="sd">        approximate (boolean):, if True uses shap approximations - less accurate, but very fast.</span>
-<span class="sd">        **shap_kwargs: keyword arguments passed to shap.TreeExplainer.</span>
+<span class="sd">        X_train (pd.DataFrame):</span>
+<span class="sd">            Dataframe containing training data.</span>
+
+<span class="sd">        X_test (pd.DataFrame):</span>
+<span class="sd">            Dataframe containing test data.</span>
+
+<span class="sd">        y_train (pd.Series):</span>
+<span class="sd">            Series of binary labels for train data.</span>
+
+<span class="sd">        y_test (pd.Series):</span>
+<span class="sd">            Series of binary labels for test data.</span>
+
+<span class="sd">        column_names (None, or list of str, optional):</span>
+<span class="sd">            List of feature names for the dataset. If None, then column names from the X_train dataframe are used.</span>
+
+<span class="sd">        class_names (None, or list of str, optional):</span>
+<span class="sd">            List of class names e.g. ['neg', 'pos']. If none, the default ['Negative Class', 'Positive Class'] are</span>
+<span class="sd">            used.</span>
+
+<span class="sd">        approximate (boolean, optional):</span>
+<span class="sd">            if True uses shap approximations - less accurate, but very fast.</span>
+
+<span class="sd">        return_scores (bool, optional):</span>
+<span class="sd">            Flag indicating whether the method should return the train and test score of the model, together with</span>
+<span class="sd">            the model interpretation report. If true, the output of this method is a tuple of DataFrame, float,</span>
+<span class="sd">            float.</span>
+
+<span class="sd">        **shap_kwargs: keyword arguments passed to</span>
+<span class="sd">            keyword arguments passed to [shap.TreeExplainer](https://shap.readthedocs.io/en/latest/generated/shap.TreeExplainer.html).</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        (pd.DataFrame): Dataframe with SHAP feature importance.</span>
+<span class="sd">        (pd.DataFrame or tuple(pd.DataFrame, float, float)):</span>
+<span class="sd">            Dataframe with SHAP feature importance, or tuple containing the dataframe, train and test scores of the</span>
+<span class="sd">            model.</span>
 <span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span>
              <span class="n">class_names</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">approximate</span><span class="o">=</span><span class="n">approximate</span><span class="p">,</span> <span class="o">**</span><span class="n">shap_kwargs</span><span class="p">)</span>
@@ -1076,7 +1217,7 @@ names from the X_train dataframe are used.</p>
 <h3 class="doc doc-heading" id="probatus.interpret.model_interpret.ShapModelInterpreter.plot">
 
         <code class="highlight language-python">
-plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_type</span><span class="p">,</span> <span class="n">target_columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">samples_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">)</span>        </code>
+plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_type</span><span class="p">,</span> <span class="n">target_set</span><span class="o">=</span><span class="s1">'test'</span><span class="p">,</span> <span class="n">target_columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">samples_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">)</span>        </code>
 
 
       <a class="headerlink" href="#probatus.interpret.model_interpret.ShapModelInterpreter.plot" title="Permanent link">&para;</a></h3>
@@ -1099,20 +1240,29 @@ plot<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <td>
 <p>One of the following:</p>
 <ul>
-<li>'importance': Feature importance plot, SHAP bar summary plot</li>
-<li>'summary': SHAP Summary plot</li>
-<li>'dependence': Dependence plot for each feature</li>
-<li>'sample': Explanation of a given sample in the test data</li>
+<li><code>'importance'</code>: Feature importance plot, SHAP bar summary plot</li>
+<li><code>'summary'</code>: SHAP Summary plot</li>
+<li><code>'dependence'</code>: Dependence plot for each feature</li>
+<li><code>'sample'</code>: Explanation of a given sample in the test data</li>
 </ul>
 </td>
 <td><em>required</em></td>
 </tr>
 <tr>
-<td><code>target_columns</code></td>
-<td><code>Optional, None, str or list of str</code></td>
+<td><code>target_set</code></td>
+<td><code>str</code></td>
 <td>
-<p>List of features names, for which the plots should be
-generated. If None, all features will be plotted.</p>
+<p>The set for which the plot should be generated, either <code>train</code> or <code>test</code> set. We recommend using test
+set, because it is not biased by model training. The train set plots are mainly used to compare with the
+test set plots, whether there are significant differences, which indicate shift in data distribution.</p>
+</td>
+<td><code>'test'</code></td>
+</tr>
+<tr>
+<td><code>target_columns</code></td>
+<td><code>None, str or list of str</code></td>
+<td>
+<p>List of features names, for which the plots should be generated. If None, all features will be plotted.</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -1125,76 +1275,131 @@ generated. If None, all features will be plotted.</p>
 <td><code>None</code></td>
 </tr>
 <tr>
+<td><code>show</code></td>
+<td><code>bool</code></td>
+<td>
+<p>If True, the plots are showed to the user, otherwise they are not shown. Not showing plot can be useful,
+when you want to edit the returned axis, before showing it.</p>
+</td>
+<td><code>True</code></td>
+</tr>
+<tr>
 <td><code>**plot_kwargs</code></td>
 <td><code></code></td>
 <td>
-<p>Keyword arguments passed to the plot method. For 'importance' and 'summary' plot_type, the
-kwargs are passed to shap.summary_plot, for 'dependence' plot_type, they are passed to
+<p>Keyword arguments passed to the plot method. For 'importance' and 'summary' plot_type, the kwargs are
+passed to shap.summary_plot, for 'dependence' plot_type, they are passed to
 probatus.interpret.TreeDependencePlotter.feature_plot method.</p>
 </td>
 <td><code>{}</code></td>
 </tr>
 </tbody>
 </table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(matplotlib.axes or list(matplotlib.axes))</code></td>
+<td>
+<p>An Axes with the plot, or list of axes when multiple plots are returned.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
           <summary>Source code in <code>probatus/interpret/model_interpret.py</code></summary>
           <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_type</span><span class="p">,</span> <span class="n">target_columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">samples_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">):</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_type</span><span class="p">,</span> <span class="n">target_set</span> <span class="o">=</span> <span class="s1">'test'</span><span class="p">,</span> <span class="n">target_columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">samples_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Plots the appropriate SHAP plot</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        plot_type (str): One of the following:</span>
+<span class="sd">        plot_type (str):</span>
+<span class="sd">            One of the following:</span>
 
-<span class="sd">            - 'importance': Feature importance plot, SHAP bar summary plot</span>
-<span class="sd">            - 'summary': SHAP Summary plot</span>
-<span class="sd">            - 'dependence': Dependence plot for each feature</span>
-<span class="sd">            - 'sample': Explanation of a given sample in the test data</span>
+<span class="sd">            - `'importance'`: Feature importance plot, SHAP bar summary plot</span>
+<span class="sd">            - `'summary'`: SHAP Summary plot</span>
+<span class="sd">            - `'dependence'`: Dependence plot for each feature</span>
+<span class="sd">            - `'sample'`: Explanation of a given sample in the test data</span>
 
-<span class="sd">        target_columns (Optional, None, str or list of str): List of features names, for which the plots should be</span>
-<span class="sd">         generated. If None, all features will be plotted.</span>
+<span class="sd">        target_set (str, optional):</span>
+<span class="sd">            The set for which the plot should be generated, either `train` or `test` set. We recommend using test</span>
+<span class="sd">            set, because it is not biased by model training. The train set plots are mainly used to compare with the</span>
+<span class="sd">            test set plots, whether there are significant differences, which indicate shift in data distribution.</span>
 
-<span class="sd">        samples_index (None, int, list or pd.Index): Index of samples to be explained if the `plot_type=sample`.</span>
+<span class="sd">        target_columns (None, str or list of str, optional):</span>
+<span class="sd">            List of features names, for which the plots should be generated. If None, all features will be plotted.</span>
 
-<span class="sd">        **plot_kwargs: Keyword arguments passed to the plot method. For 'importance' and 'summary' plot_type, the</span>
-<span class="sd">         kwargs are passed to shap.summary_plot, for 'dependence' plot_type, they are passed to</span>
-<span class="sd">         probatus.interpret.TreeDependencePlotter.feature_plot method.</span>
+<span class="sd">        samples_index (None, int, list or pd.Index, optional):</span>
+<span class="sd">            Index of samples to be explained if the `plot_type=sample`.</span>
 
+<span class="sd">        show (bool, optional):</span>
+<span class="sd">            If True, the plots are showed to the user, otherwise they are not shown. Not showing plot can be useful,</span>
+<span class="sd">            when you want to edit the returned axis, before showing it.</span>
+
+<span class="sd">        **plot_kwargs:</span>
+<span class="sd">            Keyword arguments passed to the plot method. For 'importance' and 'summary' plot_type, the kwargs are</span>
+<span class="sd">            passed to shap.summary_plot, for 'dependence' plot_type, they are passed to</span>
+<span class="sd">            probatus.interpret.TreeDependencePlotter.feature_plot method.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (matplotlib.axes or list(matplotlib.axes)):</span>
+<span class="sd">            An Axes with the plot, or list of axes when multiple plots are returned.</span>
 <span class="sd">    """</span>
+    <span class="c1"># Choose correct columns</span>
     <span class="k">if</span> <span class="n">target_columns</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">target_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">column_names</span>
 
     <span class="n">target_columns</span> <span class="o">=</span> <span class="n">assure_list_of_strings</span><span class="p">(</span><span class="n">target_columns</span><span class="p">,</span> <span class="s1">'target_columns'</span><span class="p">)</span>
     <span class="n">target_columns_indices</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">column_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">target_column</span><span class="p">)</span> <span class="k">for</span> <span class="n">target_column</span> <span class="ow">in</span> <span class="n">target_columns</span><span class="p">]</span>
 
-    <span class="k">if</span> <span class="n">plot_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'importance'</span><span class="p">,</span> <span class="s1">'summary'</span><span class="p">]:</span>
-        <span class="c1"># Get the target features</span>
-        <span class="n">target_X_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="p">[</span><span class="n">target_columns</span><span class="p">]</span>
-        <span class="n">target_shap_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shap_values</span><span class="p">[:,</span> <span class="n">target_columns_indices</span><span class="p">]</span>
+    <span class="c1"># Choose the correct dataset</span>
+    <span class="k">if</span> <span class="n">target_set</span> <span class="o">==</span> <span class="s1">'test'</span><span class="p">:</span>
+        <span class="n">target_X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span>
+        <span class="n">target_shap_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shap_values_test</span>
+        <span class="n">target_tdp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdp_train</span>
+        <span class="n">target_expected_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_value_train</span>
+    <span class="k">elif</span> <span class="n">target_set</span> <span class="o">==</span> <span class="s1">'train'</span><span class="p">:</span>
+        <span class="n">target_X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span>
+        <span class="n">target_shap_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shap_values_train</span>
+        <span class="n">target_tdp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdp_test</span>
+        <span class="n">target_expected_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">expected_value_test</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">(</span><span class="s1">'The target_set parameter can be either "train" or "test".'</span><span class="p">))</span>
 
+    <span class="k">if</span> <span class="n">plot_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'importance'</span><span class="p">,</span> <span class="s1">'summary'</span><span class="p">]:</span>
+        <span class="n">target_X</span> <span class="o">=</span> <span class="n">target_X</span><span class="p">[</span><span class="n">target_columns</span><span class="p">]</span>
+        <span class="n">target_shap_values</span> <span class="o">=</span> <span class="n">target_shap_values</span><span class="p">[:,</span> <span class="n">target_columns_indices</span><span class="p">]</span>
         <span class="c1"># Set summary plot settings</span>
         <span class="k">if</span> <span class="n">plot_type</span> <span class="o">==</span> <span class="s1">'importance'</span><span class="p">:</span>
             <span class="n">plot_type</span> <span class="o">=</span> <span class="s1">'bar'</span>
-            <span class="n">plot_title</span> <span class="o">=</span> <span class="s1">'SHAP Feature Importance'</span>
+            <span class="n">plot_title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'SHAP Feature Importance for </span><span class="si">{</span><span class="n">target_set</span><span class="si">}</span><span class="s1"> set'</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">plot_type</span> <span class="o">=</span> <span class="s1">'dot'</span>
-            <span class="n">plot_title</span> <span class="o">=</span> <span class="s1">'SHAP Summary plot'</span>
+            <span class="n">plot_title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'SHAP Summary plot for </span><span class="si">{</span><span class="n">target_set</span><span class="si">}</span><span class="s1"> set'</span>
 
-        <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">target_shap_values</span><span class="p">,</span> <span class="n">target_X_test</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="n">plot_type</span><span class="p">,</span>
+        <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">target_shap_values</span><span class="p">,</span> <span class="n">target_X</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="n">plot_type</span><span class="p">,</span>
                           <span class="n">class_names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">class_names</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">)</span>
         <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">plot_title</span><span class="p">)</span>
 
         <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">results_text</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">xycoords</span><span class="o">=</span><span class="s1">'axes fraction'</span><span class="p">,</span>
                     <span class="n">textcoords</span><span class="o">=</span><span class="s1">'offset points'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'top'</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">elif</span> <span class="n">plot_type</span> <span class="o">==</span> <span class="s1">'dependence'</span><span class="p">:</span>
         <span class="n">ax</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">feature_name</span> <span class="ow">in</span> <span class="n">target_columns</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">()</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">tdp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">feature</span><span class="o">=</span><span class="n">feature_name</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">target_names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">class_names</span><span class="p">))</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+                <span class="n">target_tdp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">feature</span><span class="o">=</span><span class="n">feature_name</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">))</span>
 
     <span class="k">elif</span> <span class="n">plot_type</span> <span class="o">==</span> <span class="s1">'sample'</span><span class="p">:</span>
         <span class="c1"># Ensure the correct samples_index type</span>
@@ -1207,18 +1412,21 @@ probatus.interpret.TreeDependencePlotter.feature_plot method.</p>
 
         <span class="n">ax</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">sample_index</span> <span class="ow">in</span> <span class="n">samples_index</span><span class="p">:</span>
-            <span class="n">sample_loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">sample_index</span><span class="p">)</span>
+            <span class="n">sample_loc</span> <span class="o">=</span> <span class="n">target_X</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">sample_index</span><span class="p">)</span>
 
-            <span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">_waterfall</span><span class="o">.</span><span class="n">waterfall_legacy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">expected_value</span><span class="p">,</span>
-                                                   <span class="bp">self</span><span class="o">.</span><span class="n">shap_values</span><span class="p">[</span><span class="n">sample_loc</span><span class="p">,</span> <span class="p">:],</span>
-                                                   <span class="bp">self</span><span class="o">.</span><span class="n">X_test</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sample_index</span><span class="p">],</span>
+            <span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">_waterfall</span><span class="o">.</span><span class="n">waterfall_legacy</span><span class="p">(</span><span class="n">target_expected_value</span><span class="p">,</span>
+                                                   <span class="n">target_shap_values</span><span class="p">[</span><span class="n">sample_loc</span><span class="p">,</span> <span class="p">:],</span>
+                                                   <span class="n">target_X</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sample_index</span><span class="p">],</span>
                                                    <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">)</span>
 
-            <span class="n">plot_title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'SHAP Sample Explanation for index=</span><span class="si">{</span><span class="n">sample_index</span><span class="si">}</span><span class="s1">'</span>
+            <span class="n">plot_title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'SHAP Sample Explanation of </span><span class="si">{</span><span class="n">target_set</span><span class="si">}</span><span class="s1"> sample for index=</span><span class="si">{</span><span class="n">sample_index</span><span class="si">}</span><span class="s1">'</span>
             <span class="n">current_ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
             <span class="n">current_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">plot_title</span><span class="p">)</span>
             <span class="n">ax</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_ax</span><span class="p">)</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Wrong plot type, select from 'importance', 'summary', or 'dependence'"</span><span class="p">)</span>
 

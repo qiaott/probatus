@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://ing-bank.github.io/probatus/index.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/tutorials/nb_shap_feature_elimination.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/tutorials/nb_shap_model_interpreter.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/tutorials/nb_metric_volatility.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/tutorials/nb_sample_similarity.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/tutorials/nb_distribution_statistics.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/tutorials/nb_custom_scoring.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/api/feature_elimination.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/api/model_interpret.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/api/metric_volatility.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/api/sample_similarity.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/api/stat_tests.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://ing-bank.github.io/probatus/api/utils.html</loc>
-     <lastmod>2020-12-04</lastmod>
+     <lastmod>2020-12-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

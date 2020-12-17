@@ -640,6 +640,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="sample-similarity">Sample Similarity<a class="headerlink" href="#sample-similarity" title="Permanent link">&para;</a></h1>
+<p><a href="https://colab.research.google.com/github/ing-bank/probatus/blob/master/docs/tutorials/nb_sample_similarity.ipynb"><img alt="open in colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <p>The goal of a Resemblance Model is understanding how different two samples are from a multivariate perspective. For instance, if you suspect that your Out-Of-Time Test set may have a different distribution than the In-Time Train set, you can detect that using the Resemblance Model.</p>
 <p><img src="../img/resemblance_model_schema.png" width="900"></p>
 <p>Having two samples <code>X1</code> and <code>X2</code> with the same set of features, one can analyse how well a model can recognize which dataset a randomly selected row comes from. The Resemblance model assigns label <code>0</code> to <code>X1</code> dataset, and label <code>1</code> to <code>X2</code>. Then, the data is shuffled and split into Train split (<code>X_train</code>, <code>y_train</code>) and Test split (<code>X_test</code>, <code>y_test</code>).</p>
